@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg7ut2wo8cenf"]
+
+[ext_resource type="Texture2D" uid="uid://cub36ieoka36c" path="res://rooms/level.png" id="1_0dt1f"]
+
+[node name="level" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(577, 323)
+texture = ExtResource("1_0dt1f")
+
+[node name="combatcontroller" type="Node2D" parent="."]
+
+[node name="cardslot0" type="CheckButton" parent="combatcontroller"]
+offset_right = 44.0
+offset_bottom = 24.0
