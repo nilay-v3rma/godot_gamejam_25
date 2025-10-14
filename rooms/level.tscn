@@ -1,15 +1,83 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg7ut2wo8cenf"]
+[gd_scene load_steps=11 format=3 uid="uid://cg7ut2wo8cenf"]
 
 [ext_resource type="Texture2D" uid="uid://cub36ieoka36c" path="res://rooms/level.png" id="1_0dt1f"]
+[ext_resource type="Texture2D" uid="uid://dccusm8ha0k07" path="res://gui/cardSlot1.png" id="2_4ve75"]
+[ext_resource type="Texture2D" uid="uid://v1rews1v410a" path="res://gui/cardview.png" id="2_dg3qb"]
+[ext_resource type="Texture2D" uid="uid://0h5btkjlsbjs" path="res://gui/cardSlot2.png" id="3_tibj6"]
+[ext_resource type="Script" uid="uid://cp17orsv0qrkx" path="res://rooms/cardview.gd" id="3_x0uc3"]
+[ext_resource type="Texture2D" uid="uid://bfc6n1v8ej4t1" path="res://gui/use.png" id="4_ianyd"]
+[ext_resource type="Script" uid="uid://bgtmymu0ofgtg" path="res://rooms/cardslot_0.gd" id="4_tibj6"]
+[ext_resource type="Texture2D" uid="uid://26mrxesutfle" path="res://gui/dont.png" id="5_knkn0"]
+[ext_resource type="Script" uid="uid://cevw7iijqrqfo" path="res://rooms/use.gd" id="5_yhl0x"]
+[ext_resource type="Script" uid="uid://b0gvrvj6sa5jt" path="res://rooms/dont.gd" id="7_yhl0x"]
 
 [node name="level" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(577, 323)
+position = Vector2(581, 327)
 texture = ExtResource("1_0dt1f")
 
 [node name="combatcontroller" type="Node2D" parent="."]
 
-[node name="cardslot0" type="CheckButton" parent="combatcontroller"]
-offset_right = 44.0
-offset_bottom = 24.0
+[node name="cardview" type="Sprite2D" parent="combatcontroller"]
+position = Vector2(581, 927)
+texture = ExtResource("2_dg3qb")
+script = ExtResource("3_x0uc3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="combatcontroller/cardview"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="use" type="TouchScreenButton" parent="combatcontroller/cardview"]
+position = Vector2(-159.99997, 145)
+scale = Vector2(1.41, 2.2333333)
+texture_normal = ExtResource("4_ianyd")
+texture_pressed = ExtResource("4_ianyd")
+script = ExtResource("5_yhl0x")
+
+[node name="dont" type="TouchScreenButton" parent="combatcontroller/cardview"]
+position = Vector2(13, 141)
+scale = Vector2(1.5000004, 3.3500023)
+texture_normal = ExtResource("5_knkn0")
+texture_pressed = ExtResource("5_knkn0")
+script = ExtResource("7_yhl0x")
+
+[node name="cardslot0" type="TouchScreenButton" parent="combatcontroller"]
+position = Vector2(45, 369)
+texture_normal = ExtResource("2_4ve75")
+texture_pressed = ExtResource("3_tibj6")
+script = ExtResource("4_tibj6")
+metadata/_edit_group_ = true
+
+[node name="cardslot1" type="TouchScreenButton" parent="combatcontroller"]
+position = Vector2(212, 370)
+texture_normal = ExtResource("2_4ve75")
+texture_pressed = ExtResource("3_tibj6")
+script = ExtResource("4_tibj6")
+metadata/_edit_group_ = true
+
+[node name="cardslot2" type="TouchScreenButton" parent="combatcontroller"]
+position = Vector2(54, 505)
+texture_normal = ExtResource("2_4ve75")
+texture_pressed = ExtResource("3_tibj6")
+script = ExtResource("4_tibj6")
+metadata/_edit_group_ = true
+
+[node name="cardslot3" type="TouchScreenButton" parent="combatcontroller"]
+position = Vector2(231, 505)
+texture_normal = ExtResource("2_4ve75")
+texture_pressed = ExtResource("3_tibj6")
+script = ExtResource("4_tibj6")
+metadata/_edit_group_ = true
+
+[connection signal="button_activated" from="combatcontroller/cardview/use" to="combatcontroller/cardview" method="_on_use_button_activated"]
+[connection signal="button_activated" from="combatcontroller/cardview/dont" to="combatcontroller/cardview" method="_on_dont_button_activated"]
+[connection signal="button_activated" from="combatcontroller/cardslot0" to="combatcontroller/cardslot0" method="_on_button_activated"]
+[connection signal="card_used" from="combatcontroller/cardslot0" to="combatcontroller/cardview" method="_on_cardslot_0_card_used"]
+[connection signal="released" from="combatcontroller/cardslot0" to="combatcontroller/cardslot0" method="_on_released"]
+[connection signal="button_activated" from="combatcontroller/cardslot1" to="combatcontroller/cardslot1" method="_on_button_activated"]
+[connection signal="released" from="combatcontroller/cardslot1" to="combatcontroller/cardslot1" method="_on_released"]
+[connection signal="button_activated" from="combatcontroller/cardslot2" to="combatcontroller/cardslot2" method="_on_button_activated"]
+[connection signal="released" from="combatcontroller/cardslot2" to="combatcontroller/cardslot2" method="_on_released"]
+[connection signal="button_activated" from="combatcontroller/cardslot3" to="combatcontroller/cardslot3" method="_on_button_activated"]
+[connection signal="released" from="combatcontroller/cardslot3" to="combatcontroller/cardslot3" method="_on_released"]
