@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd7332tml8068"]
+
+[ext_resource type="PackedScene" uid="uid://dbiu5aphmwomf" path="res://experimentation/rigid.tscn" id="1_v51wh"]
+[ext_resource type="Script" uid="uid://cqtnf2va6iesn" path="res://experimentation/static_body_2d.gd" id="2_v51wh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vp24"]
+size = Vector2(1065.5, 120)
+
+[node name="Rigidbodies" type="Node2D"]
+
+[node name="RigidBody2D" parent="." instance=ExtResource("1_v51wh")]
+position = Vector2(414, 266)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("1_v51wh")]
+position = Vector2(420, 93)
+
+[node name="RigidBody2D5" parent="." instance=ExtResource("1_v51wh")]
+position = Vector2(335, 210)
+
+[node name="RigidBody2D6" parent="." instance=ExtResource("1_v51wh")]
+position = Vector2(458, 182)
+
+[node name="RigidBody2D7" parent="." instance=ExtResource("1_v51wh")]
+position = Vector2(686, 72)
+
+[node name="RigidBody2D8" parent="." instance=ExtResource("1_v51wh")]
+position = Vector2(834, 183)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("1_v51wh")]
+position = Vector2(183, 332)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("1_v51wh")]
+position = Vector2(680, 246)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(548, 552)
+script = ExtResource("2_v51wh")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_2vp24")

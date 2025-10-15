@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbiu5aphmwomf"]
+
+[ext_resource type="Script" uid="uid://x45agqaichfo" path="res://experimentation/rigid_body_2d.gd" id="1_1t888"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v51wh"]
+size = Vector2(91, 37)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_1t888")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v51wh")
