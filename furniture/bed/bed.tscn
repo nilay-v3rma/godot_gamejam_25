@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://1ctg3bgmefy7"]
+
+[ext_resource type="Script" uid="uid://bsqr5qvdi3pjl" path="res://furniture/bed/bed.gd" id="1_j6ita"]
+[ext_resource type="Texture2D" uid="uid://dv18ead3hl3d1" path="res://furniture/bed/bed.png" id="1_xlph6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlph6"]
+size = Vector2(126, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6ita"]
+size = Vector2(121, 11)
+
+[node name="Bed" type="RigidBody2D"]
+script = ExtResource("1_j6ita")
+
+[node name="Bed" type="Sprite2D" parent="."]
+texture = ExtResource("1_xlph6")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_xlph6")
+
+[node name="mattress" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="mattress"]
+position = Vector2(0, -19)
+shape = SubResource("RectangleShape2D_j6ita")
+
+[connection signal="body_entered" from="mattress" to="." method="_on_mattress_body_entered"]

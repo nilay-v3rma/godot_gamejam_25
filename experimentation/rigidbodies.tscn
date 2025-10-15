@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd7332tml8068"]
+[gd_scene load_steps=6 format=3 uid="uid://cd7332tml8068"]
 
 [ext_resource type="PackedScene" uid="uid://dbiu5aphmwomf" path="res://experimentation/rigid.tscn" id="1_v51wh"]
 [ext_resource type="Script" uid="uid://cqtnf2va6iesn" path="res://experimentation/static_body_2d.gd" id="2_v51wh"]
+[ext_resource type="PackedScene" uid="uid://1ctg3bgmefy7" path="res://furniture/bed/bed.tscn" id="3_2vp24"]
+[ext_resource type="PackedScene" uid="uid://cg8lsdpmnyghg" path="res://furniture/desk/desk.tscn" id="4_3iood"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vp24"]
 size = Vector2(1065.5, 120)
@@ -39,3 +41,14 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_2vp24")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 417.0
+offset_bottom = 29.0
+text = "(Please enable Debug > Visible Collision Shape)"
+
+[node name="Bed" parent="." instance=ExtResource("3_2vp24")]
+position = Vector2(604, 154)
+
+[node name="Desk" parent="." instance=ExtResource("4_3iood")]
+position = Vector2(512, 327)

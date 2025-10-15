@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ihh7bfgwbl32"]
+
+[ext_resource type="Texture2D" uid="uid://ccxoqh8bypuxt" path="res://furniture/cupboard/cupboard.png" id="1_enemm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muh0v"]
+size = Vector2(100, 248)
+
+[node name="Cupboard" type="RigidBody2D"]
+
+[node name="Cupboard" type="Sprite2D" parent="."]
+texture = ExtResource("1_enemm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_muh0v")
