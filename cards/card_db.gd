@@ -8,8 +8,11 @@ func _ready() -> void:
 		_register_card("res://cards/card data/card"+str(i)+".tres")
 
 func _register_card(path: String):
-	var card = load(path)
+	print("attemping to register: "+ path)
+	var card: CardData = load(path)
 	cards[card.id] = card
+	print(card.id, card.name)
 
-func get_card(id: String) -> CardData:
+func get_card(id: int) -> CardData:
+	print("Attempting to get card id:", str(id))
 	return cards.get(id)

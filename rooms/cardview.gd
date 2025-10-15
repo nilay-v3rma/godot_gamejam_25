@@ -7,6 +7,8 @@ var sprite_size: Vector2
 # if the cardviewer is currently focused/on screen
 var active: bool
 var viewing_card_id: int
+var viewing_card: CardData
+var db: CardDB
 
 # main signal
 signal card_deployed(card_id)
@@ -16,6 +18,11 @@ func _ready() -> void:
 	screen_size = get_viewport().get_visible_rect().size
 	sprite_size = texture.get_size()
 	active = false
+	
+	# Load the card database to reference
+	db = load("res://cards/card_db.gd").new()
+	add_child(db)
+
 
 func _process(delta: float) -> void:
 	
@@ -28,6 +35,12 @@ func _process(delta: float) -> void:
 
 func card_used(card_id):
 	viewing_card_id = card_id
+	viewing_card = db.get_card(card_id)
+	$name.text = viewing_card.name
+	$type.text = viewing_card.effect_type
+	$icon.texture = viewing_card.icon
+	$description.text = viewing_card.description
+	$cooldown.text = "Cooldown: " + str(viewing_card.cooldown_turns) + " turns"
 	active = true
 
 func _on_use_button_activated(data: Variant) -> void:
