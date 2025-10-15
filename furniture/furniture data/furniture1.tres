@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FurnitureData" load_steps=3 format=3 uid="uid://dj7d25uxwawus"]
+
+[ext_resource type="Script" uid="uid://binw7elo15man" path="res://furniture/furniture_data.gd" id="1_fobei"]
+[ext_resource type="Texture2D" uid="uid://dv18ead3hl3d1" path="res://furniture/bed/bed.png" id="1_pgcx1"]
+
+[resource]
+script = ExtResource("1_fobei")
+id = 1
+name = "bed"
+icon = ExtResource("1_pgcx1")
+description = "Bouncy at the top, otherwise regular"
+scene_path = "res://furniture/bed/bed.tscn"
+durability = 10
+metadata/_custom_type_script = "uid://binw7elo15man"

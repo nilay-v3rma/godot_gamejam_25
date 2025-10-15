@@ -18,10 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 CardDBInst="*res://cards/card_db.gd"
+FurnitureDBInst="*res://furniture/furniture_db.gd"
 
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=false
 
 [rendering]
 

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FurnitureData" load_steps=3 format=3 uid="uid://r1r2oxi5itgk"]
+
+[ext_resource type="Script" uid="uid://binw7elo15man" path="res://furniture/furniture_data.gd" id="1_7q6wg"]
+[ext_resource type="Texture2D" uid="uid://usv22om4osb7" path="res://furniture/desk/desk.png" id="1_h7eqv"]
+
+[resource]
+script = ExtResource("1_7q6wg")
+id = 3
+name = "desk"
+icon = ExtResource("1_h7eqv")
+description = "Good cover, can hide characters"
+scene_path = "res://furniture/desk/desk.tscn"
+durability = 20
+metadata/_custom_type_script = "uid://binw7elo15man"

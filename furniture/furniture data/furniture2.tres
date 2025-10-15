@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FurnitureData" load_steps=3 format=3 uid="uid://3utlbbedt8l8"]
+
+[ext_resource type="Script" uid="uid://binw7elo15man" path="res://furniture/furniture_data.gd" id="1_rhta1"]
+[ext_resource type="Texture2D" uid="uid://ccxoqh8bypuxt" path="res://furniture/cupboard/cupboard.png" id="1_rhwgr"]
+
+[resource]
+script = ExtResource("1_rhta1")
+id = 2
+name = "cupboard"
+icon = ExtResource("1_rhwgr")
+description = "heavy wall"
+scene_path = "res://furniture/cupboard/cupboard.tscn"
+durability = 30
+metadata/_custom_type_script = "uid://binw7elo15man"

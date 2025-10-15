@@ -68,3 +68,7 @@ func _on_cardslot_3_card_used(card_id: Variant) -> void:
 
 func _on_skipturn_skipturn() -> void:
 	card_deployed.emit(-1, -1)
+
+
+func _on_start_button_activated(data: Variant) -> void:
+	get_parent().visible = true
