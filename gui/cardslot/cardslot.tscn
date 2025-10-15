@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cw6rlsf0pg15r"]
 
-[ext_resource type="Texture2D" uid="uid://dccusm8ha0k07" path="res://gui/cardSlot1.png" id="1_7kl8x"]
-[ext_resource type="Texture2D" uid="uid://0h5btkjlsbjs" path="res://gui/cardSlot2.png" id="2_24p7m"]
-[ext_resource type="Script" uid="uid://bgtmymu0ofgtg" path="res://rooms/cardslot.gd" id="3_uquwx"]
+[ext_resource type="Texture2D" uid="uid://dccusm8ha0k07" path="res://gui/cardslot/cardSlot1.png" id="1_7kl8x"]
+[ext_resource type="Texture2D" uid="uid://0h5btkjlsbjs" path="res://gui/cardslot/cardSlot2.png" id="2_24p7m"]
+[ext_resource type="Script" uid="uid://bgtmymu0ofgtg" path="res://gui/cardslot/cardslot.gd" id="3_uquwx"]
 [ext_resource type="Texture2D" uid="uid://dnrk56uoohkir" path="res://cards/icons/1.png" id="4_24p7m"]
 
 [node name="cardslot" type="TouchScreenButton"]

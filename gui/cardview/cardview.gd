@@ -11,7 +11,7 @@ var viewing_card: CardData
 var db: CardDB
 var invoked_card_slot: int
 
-# main signal
+# main signal # for card skip, -1 -1 is emitted
 signal card_deployed(slot_index: int, card_id: int)
 
 func _ready() -> void:
@@ -64,3 +64,7 @@ func _on_cardslot_2_card_used(card_id: Variant) -> void:
 func _on_cardslot_3_card_used(card_id: Variant) -> void:
 	invoked_card_slot = 3
 	card_used(card_id)
+
+
+func _on_skipturn_skipturn() -> void:
+	card_deployed.emit(-1, -1)
