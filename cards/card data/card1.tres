@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://tpjwaes6jsbx"]
+
+[ext_resource type="Script" uid="uid://dx0nhxajjomkd" path="res://cards/card_data.gd" id="1_2qfdp"]
+[ext_resource type="Texture2D" uid="uid://dnrk56uoohkir" path="res://cards/icons/1.png" id="1_u1hu4"]
+
+[resource]
+script = ExtResource("1_2qfdp")
+id = 1
+name = "Simple Cracker"
+icon = ExtResource("1_u1hu4")
+description = "Simplest Cracker. Good old reliable. Deals great concentrated damage. Easy to throw in tight cracks."
+cooldown_turns = 3
+effect_type = "explosive"
+metadata/_custom_type_script = "uid://dx0nhxajjomkd"

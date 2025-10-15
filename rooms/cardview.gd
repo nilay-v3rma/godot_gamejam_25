@@ -30,12 +30,19 @@ func card_used(card_id):
 	viewing_card_id = card_id
 	active = true
 
-func _on_cardslot_0_card_used(card_id: Variant) -> void:
-	card_used(card_id)
-
 func _on_use_button_activated(data: Variant) -> void:
 	card_deployed.emit(viewing_card_id)
 	active = false
 
 func _on_dont_button_activated(data: Variant) -> void:
 	active = false
+
+
+func _on_cardslot_0_card_used(card_id: Variant) -> void:
+	card_used(card_id)
+func _on_cardslot_1_card_used(card_id: Variant) -> void:
+	card_used(card_id)
+func _on_cardslot_2_card_used(card_id: Variant) -> void:
+	card_used(card_id)
+func _on_cardslot_3_card_used(card_id: Variant) -> void:
+	card_used(card_id)

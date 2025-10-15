@@ -20,7 +20,7 @@ texture = ExtResource("1_0dt1f")
 [node name="combatcontroller" type="Node2D" parent="."]
 
 [node name="cardview" type="Sprite2D" parent="combatcontroller"]
-position = Vector2(581, 927)
+position = Vector2(34, 944)
 texture = ExtResource("2_dg3qb")
 script = ExtResource("3_x0uc3")
 
@@ -76,8 +76,11 @@ metadata/_edit_group_ = true
 [connection signal="card_used" from="combatcontroller/cardslot0" to="combatcontroller/cardview" method="_on_cardslot_0_card_used"]
 [connection signal="released" from="combatcontroller/cardslot0" to="combatcontroller/cardslot0" method="_on_released"]
 [connection signal="button_activated" from="combatcontroller/cardslot1" to="combatcontroller/cardslot1" method="_on_button_activated"]
+[connection signal="card_used" from="combatcontroller/cardslot1" to="combatcontroller/cardview" method="_on_cardslot_1_card_used"]
 [connection signal="released" from="combatcontroller/cardslot1" to="combatcontroller/cardslot1" method="_on_released"]
 [connection signal="button_activated" from="combatcontroller/cardslot2" to="combatcontroller/cardslot2" method="_on_button_activated"]
+[connection signal="card_used" from="combatcontroller/cardslot2" to="combatcontroller/cardview" method="_on_cardslot_2_card_used"]
 [connection signal="released" from="combatcontroller/cardslot2" to="combatcontroller/cardslot2" method="_on_released"]
 [connection signal="button_activated" from="combatcontroller/cardslot3" to="combatcontroller/cardslot3" method="_on_button_activated"]
+[connection signal="card_used" from="combatcontroller/cardslot3" to="combatcontroller/cardview" method="_on_cardslot_3_card_used"]
 [connection signal="released" from="combatcontroller/cardslot3" to="combatcontroller/cardslot3" method="_on_released"]
