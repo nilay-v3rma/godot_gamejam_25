@@ -16,3 +16,8 @@ func _register_card(path: String):
 func get_card(id: int) -> CardData:
 	print("Attempting to get card id:", str(id))
 	return cards.get(id)
+
+func get_random_card() -> CardData:
+	var keys = cards.keys()
+	var random_key = keys[randi() % keys.size()]
+	return cards[random_key]

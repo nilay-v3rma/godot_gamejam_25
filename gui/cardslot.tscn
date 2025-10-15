@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw6rlsf0pg15r"]
+
+[ext_resource type="Texture2D" uid="uid://dccusm8ha0k07" path="res://gui/cardSlot1.png" id="1_7kl8x"]
+[ext_resource type="Texture2D" uid="uid://0h5btkjlsbjs" path="res://gui/cardSlot2.png" id="2_24p7m"]
+[ext_resource type="Script" uid="uid://bgtmymu0ofgtg" path="res://rooms/cardslot.gd" id="3_uquwx"]
+[ext_resource type="Texture2D" uid="uid://dnrk56uoohkir" path="res://cards/icons/1.png" id="4_24p7m"]
+
+[node name="cardslot" type="TouchScreenButton"]
+texture_normal = ExtResource("1_7kl8x")
+texture_pressed = ExtResource("2_24p7m")
+script = ExtResource("3_uquwx")
+card_id = 1
+
+[node name="cardicon" type="Sprite2D" parent="."]
+position = Vector2(50, 50)
+texture = ExtResource("4_24p7m")
+
+[node name="cooldown" type="RichTextLabel" parent="."]
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 69
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_activated" from="." to="." method="_on_button_activated"]

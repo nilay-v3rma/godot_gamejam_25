@@ -8,8 +8,6 @@ var original_pos: Vector2
 var squish_amount: float = 0.7
 var rect: Rect2 # for bounds checking of the button
 
-var cooldown: int
-
 signal button_activated(data)
 
 func _ready() -> void:
@@ -17,7 +15,8 @@ func _ready() -> void:
 	sprite_size = texture_normal.get_size()
 	rect = Rect2(Vector2.ZERO, sprite_size)
 	original_scale = self.scale
-	original_pos = self.position	
+	original_pos = self.position
+	print(original_scale, original_pos, "here")
 
 func _physics_process(delta: float) -> void:
 	
@@ -26,9 +25,11 @@ func _physics_process(delta: float) -> void:
 	var target_offset = sprite_size * (1 - squish_amount) * 0.5
 
 	if is_pressed():
+		pass
 		scale = scale.lerp(original_scale * squish_amount, speed * delta)
 		position = position.lerp(original_pos+ target_offset, speed * delta)
 	else:
+		pass
 		scale = scale.lerp(original_scale, speed * delta)
 		position = position.lerp(original_pos, speed * delta)
 
