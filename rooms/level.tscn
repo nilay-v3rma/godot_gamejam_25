@@ -141,6 +141,7 @@ script = ExtResource("15_mlrue")
 metadata/_custom_type_script = "uid://c04bpd7p32ga8"
 
 [node name="cardsystem" type="Node2D" parent="."]
+visible = false
 
 [node name="cardslot0" parent="cardsystem" instance=ExtResource("2_knkn0")]
 position = Vector2(89, 359)
