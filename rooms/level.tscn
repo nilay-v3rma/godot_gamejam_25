@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cg7ut2wo8cenf"]
+[gd_scene load_steps=27 format=3 uid="uid://cg7ut2wo8cenf"]
 
 [ext_resource type="Texture2D" uid="uid://cub36ieoka36c" path="res://rooms/level.png" id="1_0dt1f"]
 [ext_resource type="Texture2D" uid="uid://v1rews1v410a" path="res://gui/cardview/cardview.png" id="2_dg3qb"]
@@ -23,6 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://chww2321h5dqa" path="res://gui/inventory/start.png" id="21_6b5hc"]
 [ext_resource type="Script" uid="uid://cnxh1olcic6bk" path="res://shooting/shooting_system.gd" id="22_shooting"]
 [ext_resource type="Texture2D" uid="uid://b2t57t2xu758r" path="res://shooting/shoot_btn.png" id="23_tdyh2"]
+[ext_resource type="Texture2D" uid="uid://t5bd8er0j40k" path="res://characters/char.png" id="24_julpp"]
+[ext_resource type="Texture2D" uid="uid://ff6puiiticmp" path="res://characters/char_throw.png" id="25_6tsgs"]
+[ext_resource type="Script" path="res://characters/characters.gd" id="26_characters"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cqxi"]
 size = Vector2(384, 304)
@@ -252,6 +255,27 @@ scale = Vector2(0.3375, 0.33734939)
 texture_normal = ExtResource("23_tdyh2")
 texture_pressed = ExtResource("23_tdyh2")
 
+[node name="characters" type="Node2D" parent="."]
+script = ExtResource("26_characters")
+
+[node name="char3" type="TouchScreenButton" parent="characters"]
+position = Vector2(246, 254)
+scale = Vector2(0.25503355, 0.30463576)
+texture_normal = ExtResource("24_julpp")
+texture_pressed = ExtResource("25_6tsgs")
+
+[node name="char2" type="TouchScreenButton" parent="characters"]
+position = Vector2(85, 189)
+scale = Vector2(0.33557048, 0.29139072)
+texture_normal = ExtResource("24_julpp")
+texture_pressed = ExtResource("25_6tsgs")
+
+[node name="char1" type="TouchScreenButton" parent="characters"]
+position = Vector2(171.00002, 109)
+scale = Vector2(0.38255033, 0.3178808)
+texture_normal = ExtResource("24_julpp")
+texture_pressed = ExtResource("25_6tsgs")
+
 [connection signal="button_activated" from="buildsystem/invetorybutton" to="buildsystem/inventory" method="_on_invetorybutton_button_activated"]
 [connection signal="furniture_picked" from="buildsystem/inventory/furnitureslot0" to="buildsystem/inventory" method="_on_furnitureslot_0_furniture_picked"]
 [connection signal="furniture_picked" from="buildsystem/inventory/furnitureslot1" to="buildsystem/inventory" method="_on_furnitureslot_0_furniture_picked"]
@@ -269,9 +293,10 @@ texture_pressed = ExtResource("23_tdyh2")
 [connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem/cardslot1" method="_on_cardview_card_deployed"]
 [connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem/cardslot2" method="_on_cardview_card_deployed"]
 [connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem/cardslot3" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem/cardview" to="characters" method="_on_card_deployed"]
 [connection signal="card_deployed" from="cardsystem/cardview" to="shootingsystem" method="_on_card_deployed"]
 [connection signal="button_activated" from="cardsystem/cardview/use" to="cardsystem/cardview" method="_on_use_button_activated"]
 [connection signal="button_activated" from="cardsystem/cardview/dont" to="cardsystem/cardview" method="_on_dont_button_activated"]
-[connection signal="pressed" from="shootingsystem/Shoot" to="shootingsystem" method="_on_shoot_button_pressed"]
 [connection signal="value_changed" from="shootingsystem/HScrollBar" to="shootingsystem" method="_on_rotation_changed"]
 [connection signal="value_changed" from="shootingsystem/HScrollBar2" to="shootingsystem" method="_on_power_changed"]
+[connection signal="pressed" from="shootingsystem/Shoot" to="shootingsystem" method="_on_shoot_button_pressed"]

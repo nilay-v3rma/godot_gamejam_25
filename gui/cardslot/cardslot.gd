@@ -7,6 +7,7 @@ signal card_used(card_id)
 @export var card_id: int
 var card: CardData
 var cooldown: int = 0
+var disabled: bool = false
 
 
 func _ready() -> void:
@@ -39,3 +40,16 @@ func _on_cardview_card_deployed(slot_index: int, card_id: int) -> void:
 		cooldown -= 1
 		if (cooldown == 0):
 			new_card()
+
+func _disable_card_slot():
+	disabled = true
+	print("called")
+	# Try multiple approaches to hide the card icon
+	# $cardicon.visible = false  # Hide the sprite completely
+	
+func _enable_card_slot():
+	disabled = false
+	# Restore visibility and transparency
+	#$cardicon.visible = true
+	if card:
+		$cardicon.texture = card.icon

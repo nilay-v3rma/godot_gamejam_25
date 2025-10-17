@@ -5,6 +5,11 @@ extends Node2D
 @onready var aim_line: Line2D = $Line2D
 @onready var shoot_button: TouchScreenButton = $Shoot
 
+# Reference to the card system to disable/enable it
+@onready var card_system: Node2D = get_node("../cardsystem")
+# Reference to the characters system
+@onready var characters_system: Node2D = get_node("../characters")
+
 var base_position: Vector2 = Vector2(400, 300)
 var line_length: float = 100.0
 
@@ -99,14 +104,60 @@ func show_shooting_system():
 	rotation_scrollbar.value = previous_rotation
 	power_scrollbar.value = previous_power
 	update_aim_line()
+	# Disable card system while shooting is active
+	disable_card_system()
+
+func show_shooting_system_at_position(character_position: Vector2):
+	"""Show the shooting system at a specific character's position"""
+	# Update the base position to the character's position
+	base_position = character_position
+	
+	# Show the shooting system
+	visible = true
+	# Use previous settings from last turn
+	rotation_scrollbar.value = previous_rotation
+	power_scrollbar.value = previous_power
+	update_aim_line()
+	# Disable card system while shooting is active
+	disable_card_system()
+	
+	print("Shooting system activated at position: ", character_position)
 
 func hide_shooting_system():
 	"""Hide the shooting system"""
 	visible = false
+	# Re-enable card system when shooting is complete
+	enable_card_system()
+	# Notify characters system that shooting is completed
+	if characters_system:
+		characters_system._on_shooting_completed()
+
+func disable_card_system():
+	"""Disable the card system while shooting is active"""
+	if card_system:
+		# Dim the card system and give it a greyish tint to show it's disabled
+		card_system.modulate = Color(0.6, 0.6, 0.6, 0.8)
+		
+		# Disable all card slots
+		for child in card_system.get_children():
+			if child is CardSlot:
+				child._disable_card_slot()
+		print("Card system disabled")
+
+func enable_card_system():
+	"""Re-enable the card system after shooting is complete"""
+	if card_system:
+		# Restore full opacity and enable interactions
+		card_system.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		
+		# Re-enable all card slots
+		for child in card_system.get_children():
+			if child is CardSlot:
+				child._enable_card_slot()
+		print("Card system enabled")
 
 func _on_card_deployed(slot_index: int, card_id: int):
 	"""Called when a card is deployed/used"""
-	if card_id != -1:  # -1 means skip turn, so don't show shooting system
-		show_shooting_system()
-	else:
-		hide_shooting_system()
+	# We no longer show shooting system directly here
+	# Character selection will handle showing the shooting system
+	print("Card deployed, waiting for character selection...")
