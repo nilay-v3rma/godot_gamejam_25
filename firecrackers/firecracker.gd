@@ -38,6 +38,9 @@ var launch_power: float
 # Card data
 var card_data: CardData
 
+func _ready() -> void:
+	$flare.connect("area_entered", Callable(self, "_on_flare_area_entered"))
+
 # this function will most likely not be used anymore because each firecracker
 # has its own scene now
 func setup_with_card_data(data: CardData):
@@ -161,3 +164,8 @@ func _physics_process(_delta):
 			finished_flaring.emit()
 			explode()
 			queue_free()
+
+func _on_flare_area_entered(area):
+	var firecracker = area.get_parent().get_parent()  # ignition/shape -> ignition -> Firecracker
+	if firecracker is Firecracker and not firecracker.is_ignited:
+		firecracker.ignite()

@@ -5,6 +5,7 @@ var thrust_force: float = 1200.0
 var wiggle_strength: float = 0.05
 
 func _ready():
+	super()
 	gravity_scale = 0.2  # reduce gravity so the rocket can rise
 
 func _physics_process(delta):
