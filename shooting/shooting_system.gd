@@ -17,6 +17,9 @@ var line_length: float = 100.0
 var previous_rotation: float = 0.0
 var previous_power: float = 50.0
 
+# Current card being used
+var current_card_data: CardData
+
 func _ready():
 	# Hide the shooting system by default
 	visible = false
@@ -84,14 +87,15 @@ func shoot():
 	var data = get_shooting_data()
 	print("Shooting with angle: ", data.angle, " and power: ", data.power)
 	
+	# Create and launch firecracker
+	spawn_and_launch_firecracker(data.angle, data.power)
+	
 	# Save current settings for next time
 	previous_rotation = rotation_scrollbar.value
 	previous_power = power_scrollbar.value
 	
 	# Hide the shooting system after shooting
 	hide_shooting_system()
-	
-	# shooting logic here
 
 func _on_shoot_button_pressed():
 	"""Called when the shoot button is pressed"""
@@ -156,8 +160,37 @@ func enable_card_system():
 				child._enable_card_slot()
 		print("Card system enabled")
 
+func spawn_and_launch_firecracker(angle: float, power: float):
+	"""Create and launch a firecracker with the given parameters"""
+	# Load the firecracker scene
+	var firecracker_scene = preload("res://firecracker/firecracker.tscn")
+	var firecracker = firecracker_scene.instantiate()
+	
+	# Add firecracker to the scene
+	get_tree().current_scene.add_child(firecracker)
+	
+	# Setup firecracker with card data if available
+	if current_card_data:
+		firecracker.setup_with_card_data(current_card_data)
+	else:
+		print("Warning: No card data available for firecracker")
+	
+	# Launch the firecracker from the base position
+	firecracker.launch(angle, power, base_position)
+	
+	print("Firecracker spawned and launched!")
+
 func _on_card_deployed(slot_index: int, card_id: int):
 	"""Called when a card is deployed/used"""
-	# We no longer show shooting system directly here
+	print("Card deployed - ID: ", card_id, " Slot: ", slot_index)
+	
+	# Load the card data from the singleton database
+	current_card_data = CardDBInst.get_card(card_id)
+	
+	if current_card_data:
+		print("Loaded card data: ", current_card_data.name)
+	else:
+		print("Warning: Could not load card data for ID: ", card_id)
+	
 	# Character selection will handle showing the shooting system
-	print("Card deployed, waiting for character selection...")
+	print("Waiting for character selection...")
