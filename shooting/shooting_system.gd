@@ -1,5 +1,9 @@
 extends Node2D
 
+const SHOOT = preload("res://audio/rocket-whistle.wav")
+
+@onready var sound = $"../sounds"
+
 @onready var rotation_scrollbar: HScrollBar = $HScrollBar
 @onready var power_scrollbar: HScrollBar = $HScrollBar2
 @onready var aim_line: Line2D = $Line2D
@@ -83,6 +87,7 @@ func get_shooting_data():
 	}
 
 func shoot():
+	sound.play_ui_sound(SHOOT)
 	"""Call this function to execute a shot with current parameters"""
 	var data = get_shooting_data()
 	print("Shooting with angle: ", data.angle, " and power: ", data.power)

@@ -1,8 +1,13 @@
 extends Sprite2D
 
+const BGM = preload("res://audio/bgm.ogg")
+
+@onready var sound = $"../sounds"
+
 func _ready():
 	# Connect to the start1 button's signal
 	$start1.button_activated.connect(_on_start1_pressed)
+	sound.play_bgm(BGM)
 
 func _on_start1_pressed(_data):
 	# Create a tween for smooth animation

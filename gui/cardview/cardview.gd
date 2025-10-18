@@ -1,5 +1,9 @@
 extends Sprite2D
 
+const CLOSE = preload("res://audio/dont-select-card-sfx.wav")
+
+@onready var sound = $"../../sounds"
+
 var original_pos: Vector2
 var screen_size: Vector2
 var sprite_size: Vector2
@@ -49,6 +53,7 @@ func _on_use_button_activated(data: Variant) -> void:
 	active = false
 
 func _on_dont_button_activated(data: Variant) -> void:
+	sound.play_ui_sound(CLOSE)
 	active = false
 
 

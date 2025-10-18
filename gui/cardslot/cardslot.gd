@@ -1,6 +1,10 @@
 extends GUIButton
 class_name CardSlot
 
+const OPEN = preload("res://audio/open-card-sfx.wav")
+
+@onready var sound = $"../../sounds"
+
 signal card_used(card_id)
 
 @export var slot_index: int = 0
@@ -29,6 +33,7 @@ func _process(delta: float) -> void:
 		$cooldown.visible = true
 
 func _on_button_activated(data: Variant) -> void:
+	sound.play_ui_sound(OPEN)
 	card_used.emit(card_id)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cg7ut2wo8cenf"]
+[gd_scene load_steps=28 format=3 uid="uid://cg7ut2wo8cenf"]
 
 [ext_resource type="Texture2D" uid="uid://cub36ieoka36c" path="res://rooms/level.png" id="1_0dt1f"]
 [ext_resource type="Texture2D" uid="uid://dn5n1o7tjftlc" path="res://gui/cardview/cardview.png" id="2_dg3qb"]
@@ -16,12 +16,13 @@
 [ext_resource type="Script" uid="uid://cnxh1olcic6bk" path="res://shooting/shooting_system.gd" id="22_shooting"]
 [ext_resource type="Texture2D" uid="uid://cnmmcyxttwyen" path="res://level2.png" id="22_t0xh4"]
 [ext_resource type="Texture2D" uid="uid://ce0wlhmgx16vv" path="res://level3.png" id="23_julpp"]
+[ext_resource type="Script" uid="uid://d5fn46o25e1f" path="res://audio/sound_manager.gd" id="23_t0xh4"]
 [ext_resource type="Texture2D" uid="uid://bvq3pgu3wfd6h" path="res://shooting/shoot_btn.png" id="23_tdyh2"]
 [ext_resource type="Texture2D" uid="uid://cv131hv2e7rtk" path="res://startpage.png" id="24_julpp"]
 [ext_resource type="Texture2D" uid="uid://cwok0iey7c06a" path="res://start.png" id="25_6tsgs"]
 [ext_resource type="Script" uid="uid://ceiy3melp8kj7" path="res://characters/characters.gd" id="26_characters"]
 [ext_resource type="Script" uid="uid://bb1lef054vpbk" path="res://rooms/homepage.gd" id="27_homepage"]
-[ext_resource type="Script" uid="uid://b8g7ae1ic7yn0" path="res://rooms/levelpage.gd" id="28_levelpage"]
+[ext_resource type="Script" path="res://rooms/levelpage.gd" id="28_levelpage"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cqxi"]
 size = Vector2(409, 321)
@@ -225,6 +226,9 @@ position = Vector2(-114, 126)
 texture_normal = ExtResource("25_6tsgs")
 script = ExtResource("15_mlrue")
 metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="sounds" type="Node2D" parent="."]
+script = ExtResource("23_t0xh4")
 
 [connection signal="card_used" from="cardsystem/cardslot0" to="cardsystem/cardview" method="_on_cardslot_0_card_used"]
 [connection signal="card_used" from="cardsystem/cardslot1" to="cardsystem/cardview" method="_on_cardslot_1_card_used"]
