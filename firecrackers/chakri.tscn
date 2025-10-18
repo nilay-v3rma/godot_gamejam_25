@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://2notwrdbbu00"]
+
+[ext_resource type="Script" uid="uid://dbruekvpbevs2" path="res://firecrackers/chakri.gd" id="1_6p30m"]
+[ext_resource type="Texture2D" uid="uid://dfw2fu41fwi27" path="res://cards/icons/6.png" id="2_6p30m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w0l06"]
+radius = 54.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6p30m"]
+radius = 17.0
+height = 174.0
+
+[sub_resource type="Curve" id="Curve_6p30m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7090909, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_koy52"]
+offsets = PackedFloat32Array(0, 0.57216495, 1)
+colors = PackedColorArray(0.96, 0.43199998, 0.43199998, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg45f"]
+size = Vector2(16.5, 21)
+
+[sub_resource type="Curve" id="Curve_ruv5e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7090909, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_67vs5"]
+offsets = PackedFloat32Array(0, 0.57216495, 1)
+colors = PackedColorArray(0.96, 0.43199998, 0.43199998, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[node name="Chakri" type="RigidBody2D"]
+script = ExtResource("1_6p30m")
+explosion_strength = 200.0
+explosion_radius = 200.0
+ignite_time = 2.0
+flare_time = 6.2
+metadata/_custom_type_script = "uid://d3e5x7gwdsjoj"
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_6p30m")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_w0l06")
+
+[node name="flare" type="Area2D" parent="."]
+
+[node name="shape" type="CollisionShape2D" parent="flare"]
+position = Vector2(54, 126)
+shape = SubResource("CapsuleShape2D_6p30m")
+
+[node name="particles" type="CPUParticles2D" parent="flare"]
+position = Vector2(55, 48)
+amount = 27
+lifetime = 0.23
+direction = Vector2(0, 1)
+spread = 7.44
+gravity = Vector2(0, 600)
+initial_velocity_min = 744.67
+initial_velocity_max = 744.67
+scale_amount_min = 1.75
+scale_amount_max = 24.79
+scale_amount_curve = SubResource("Curve_6p30m")
+color = Color(0.87, 0.65250003, 0, 1)
+color_ramp = SubResource("Gradient_koy52")
+
+[node name="ignition" type="Area2D" parent="."]
+
+[node name="shape" type="CollisionShape2D" parent="ignition"]
+position = Vector2(54, 52)
+shape = SubResource("RectangleShape2D_rg45f")
+
+[node name="particles" type="CPUParticles2D" parent="ignition"]
+position = Vector2(50, 48)
+emitting = false
+amount = 15
+lifetime = 0.19
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 149.63
+initial_velocity_max = 149.63
+scale_amount_min = 10.9
+scale_amount_max = 10.9
+scale_amount_curve = SubResource("Curve_ruv5e")
+color = Color(0.87, 0.65250003, 0, 1)
+color_ramp = SubResource("Gradient_67vs5")

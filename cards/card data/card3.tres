@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bg8puhaui680r"]
 
-[ext_resource type="Texture2D" uid="uid://cntge2ew35lun" path="res://cards/icons/3.png" id="1_cgywn"]
+[ext_resource type="Texture2D" uid="uid://j6qtuut65mif" path="res://cards/icons/3.png" id="1_cgywn"]
 [ext_resource type="Script" uid="uid://dx0nhxajjomkd" path="res://cards/card_data.gd" id="1_hlihp"]
 
 [resource]
@@ -11,4 +11,5 @@ icon = ExtResource("1_cgywn")
 description = "Great area of damage. Very good at desrupting defenses."
 cooldown_turns = 4
 effect_type = "explosive"
+scene = "res://firecrackers/sutali.tscn"
 metadata/_custom_type_script = "uid://dx0nhxajjomkd"

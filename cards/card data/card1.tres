@@ -13,4 +13,5 @@ icon = SubResource("CompressedTexture2D_pyowd")
 description = "Simplest Cracker. Good old reliable. Deals great concentrated damage. Easy to throw in tight cracks."
 cooldown_turns = 3
 effect_type = "explosive"
+scene = "res://firecrackers/simplecracker.tscn"
 metadata/_custom_type_script = "uid://dx0nhxajjomkd"
