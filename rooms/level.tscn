@@ -60,6 +60,13 @@ metadata/_edit_group_ = true
 position = Vector2(-1.5, -3.5)
 shape = SubResource("RectangleShape2D_2cqxi")
 
+[node name="Desk" parent="leftstage" instance=ExtResource("4_bj57p")]
+position = Vector2(-127, -206)
+
+[node name="Desk2" parent="leftstage" instance=ExtResource("4_bj57p")]
+position = Vector2(-19, -231)
+rotation = 1.5707964
+
 [node name="leftstage2" type="StaticBody2D" parent="."]
 position = Vector2(955, 491)
 metadata/_edit_group_ = true
@@ -82,14 +89,14 @@ position = Vector2(-54, -449)
 [node name="buildsystem" type="Node2D" parent="."]
 
 [node name="invetorybutton" type="TouchScreenButton" parent="buildsystem"]
-position = Vector2(21, 17)
+position = Vector2(6, 6)
 texture_normal = ExtResource("12_wrbck")
 texture_pressed = ExtResource("12_wrbck")
 script = ExtResource("15_mlrue")
 metadata/_custom_type_script = "uid://c04bpd7p32ga8"
 
 [node name="inventory" type="Sprite2D" parent="buildsystem"]
-position = Vector2(221, -219)
+position = Vector2(222, -234)
 texture = ExtResource("14_3r5wm")
 script = ExtResource("15_3r5wm")
 
@@ -173,7 +180,7 @@ script = ExtResource("15_mlrue")
 metadata/_custom_type_script = "uid://c04bpd7p32ga8"
 
 [node name="start" type="TouchScreenButton" parent="buildsystem"]
-position = Vector2(493, 383)
+position = Vector2(457, 346)
 texture_normal = ExtResource("21_6b5hc")
 texture_pressed = ExtResource("21_6b5hc")
 script = ExtResource("15_mlrue")
@@ -264,21 +271,23 @@ script = ExtResource("7_yhl0x")
 
 [node name="shootingsystem" type="Node2D" parent="."]
 z_index = 10
+position = Vector2(14, 0)
 script = ExtResource("22_shooting")
 
 [node name="HScrollBar" type="HScrollBar" parent="shootingsystem"]
-offset_left = 495.0
-offset_top = 455.0
-offset_right = 629.0
-offset_bottom = 503.0
-max_value = 360.0
+offset_left = 51.0
+offset_top = 414.0
+offset_right = 351.0
+offset_bottom = 462.0
+min_value = -180.0
+max_value = 180.0
 step = 2.0
 
 [node name="HScrollBar2" type="HScrollBar" parent="shootingsystem"]
-offset_left = 494.0
-offset_top = 515.0
-offset_right = 628.0
-offset_bottom = 563.0
+offset_left = 47.0
+offset_top = 487.0
+offset_right = 347.0
+offset_bottom = 535.0
 step = 2.0
 
 [node name="Line2D" type="Line2D" parent="shootingsystem"]
@@ -287,7 +296,7 @@ width = 3.0
 default_color = Color(1, 0, 0, 1)
 
 [node name="Shoot" type="TouchScreenButton" parent="shootingsystem"]
-position = Vector2(497, 581)
+position = Vector2(147, 559.00006)
 scale = Vector2(0.3375, 0.33734939)
 texture_normal = ExtResource("23_tdyh2")
 texture_pressed = ExtResource("23_tdyh2")
@@ -296,20 +305,20 @@ texture_pressed = ExtResource("23_tdyh2")
 script = ExtResource("26_characters")
 
 [node name="char3" type="TouchScreenButton" parent="characters"]
-position = Vector2(246, 254)
-scale = Vector2(0.50819695, 0.41566265)
+position = Vector2(268, 223)
+scale = Vector2(0.65, 0.65)
 texture_normal = SubResource("CompressedTexture2D_cu605")
 texture_pressed = SubResource("CompressedTexture2D_5qnhv")
 
 [node name="char2" type="TouchScreenButton" parent="characters"]
-position = Vector2(85, 189)
-scale = Vector2(0.5573771, 0.4698795)
+position = Vector2(54.000004, 144.00002)
+scale = Vector2(0.65, 0.65)
 texture_normal = SubResource("CompressedTexture2D_cu605")
 texture_pressed = SubResource("CompressedTexture2D_5qnhv")
 
 [node name="char1" type="TouchScreenButton" parent="characters"]
-position = Vector2(171.00002, 109)
-scale = Vector2(0.49180308, 0.40361446)
+position = Vector2(180, 92.00001)
+scale = Vector2(0.792, 0.65)
 texture_normal = SubResource("CompressedTexture2D_cu605")
 texture_pressed = SubResource("CompressedTexture2D_5qnhv")
 

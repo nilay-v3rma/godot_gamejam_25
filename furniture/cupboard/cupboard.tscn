@@ -7,6 +7,7 @@
 size = Vector2(116, 224)
 
 [node name="Cupboard" type="RigidBody2D"]
+mass = 5.0
 script = ExtResource("1_muh0v")
 metadata/_custom_type_script = "uid://xva554co7d0k"
 

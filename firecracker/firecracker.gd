@@ -31,25 +31,25 @@ func setup_with_card_data(data: CardData):
 	# Adjust properties based on card type
 	match card_data.id:
 		1: # Simple Cracker
-			sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)  # Red, fully opaque
-			sprite.scale = Vector2(0.3, 0.1)
+			#sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)  # Red, fully opaque
+			sprite.scale = Vector2(0.3, 0.3)
 			mass = 0.3
 		2: # Fountain
 			sprite.modulate = Color(1.0, 0.5, 0.0, 1.0)  # Orange, fully opaque
-			sprite.scale = Vector2(0.4, 0.2)
+			sprite.scale = Vector2(0.3, 0.3)
 			mass = 0.4
 		3: # Sutli Bomb
 			sprite.modulate = Color(1.0, 1.0, 0.0, 1.0)  # Yellow, fully opaque
-			sprite.scale = Vector2(0.5, 0.3)
+			sprite.scale = Vector2(0.3, 0.3)
 			mass = 0.6
 		4: # Ignited Matchstick
 			sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)  # White, fully opaque
-			sprite.scale = Vector2(0.2, 0.05)
+			sprite.scale = Vector2(0.3, 0.3)
 			mass = 0.1
 		_:
 			# Default firecracker
 			sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)  # Red, fully opaque
-			sprite.scale = Vector2(0.3, 0.1)
+			sprite.scale = Vector2(0.3, 0.3)
 	# Setup physics - using default gravity scale
 	pass
 

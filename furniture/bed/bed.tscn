@@ -10,6 +10,7 @@ size = Vector2(182, 38)
 size = Vector2(182, 11)
 
 [node name="Bed" type="RigidBody2D"]
+mass = 3.0
 script = ExtResource("1_j6ita")
 
 [node name="Bed" type="Sprite2D" parent="."]

@@ -9,9 +9,9 @@ signal shooting_completed
 
 # Character data with their positions
 var characters_data = {
-	0: {"name": "char1", "position": Vector2(171, 109)},
-	1: {"name": "char2", "position": Vector2(85, 189)}, 
-	2: {"name": "char3", "position": Vector2(246, 254)}
+	0: {"name": "char1", "position": Vector2(180, 92)},
+	1: {"name": "char2", "position": Vector2(54, 144)}, 
+	2: {"name": "char3", "position": Vector2(268, 223)}
 }
 
 var selected_character_id: int = -1
@@ -62,6 +62,7 @@ func highlight_selected_character(selected_id: int):
 		if char_node:
 			if i == selected_id:
 				# Highlight selected character (full opacity, slight scale)
+				
 				char_node.modulate = Color(1.2, 1.2, 1.0, 1.0)  # Slightly yellow tint
 			else:
 				# Dim non-selected characters
