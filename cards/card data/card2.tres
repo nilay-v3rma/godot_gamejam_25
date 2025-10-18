@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://c0dwavw20xqmf"]
 
 [ext_resource type="Script" uid="uid://dx0nhxajjomkd" path="res://cards/card_data.gd" id="1_hlihp"]
-[ext_resource type="Texture2D" uid="uid://bx3ggwx3uea03" path="res://cards/icons/2.png" id="1_tp6ha"]
+[ext_resource type="Texture2D" uid="uid://bgr4bermi0u44" path="res://cards/icons/2.png" id="1_tp6ha"]
 
 [resource]
 script = ExtResource("1_hlihp")
@@ -11,4 +11,5 @@ icon = ExtResource("1_tp6ha")
 description = "Fires a fountain in pointed direction. Great for igniting other explosives."
 cooldown_turns = 5
 effect_type = "explosive"
+scene = "res://firecrackers/fountain.tscn"
 metadata/_custom_type_script = "uid://dx0nhxajjomkd"

@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://c75hqfxqp15ab"]
+
+[ext_resource type="Script" uid="uid://d3e5x7gwdsjoj" path="res://firecrackers/firecracker.gd" id="1_rg45f"]
+[ext_resource type="Texture2D" uid="uid://bgr4bermi0u44" path="res://cards/icons/2.png" id="2_rg45f"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ruv5e"]
+points = PackedVector2Array(-1, -47, -33, 30, 33, 30)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rg45f"]
+radius = 35.0
+height = 448.0
+
+[sub_resource type="Curve" id="Curve_ruv5e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7090909, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_67vs5"]
+offsets = PackedFloat32Array(0, 0.57216495, 1)
+colors = PackedColorArray(0.96, 0.43199998, 0.43199998, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg45f"]
+
+[node name="Fountain" type="RigidBody2D"]
+script = ExtResource("1_rg45f")
+ignite_time = 2.0
+flare_time = 6.2
+metadata/_custom_type_script = "uid://d3e5x7gwdsjoj"
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -7.465)
+texture = ExtResource("2_rg45f")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_ruv5e")
+
+[node name="flare" type="Area2D" parent="."]
+
+[node name="shape" type="CollisionShape2D" parent="flare"]
+position = Vector2(-2, -272)
+shape = SubResource("CapsuleShape2D_rg45f")
+
+[node name="particles" type="CPUParticles2D" parent="flare"]
+position = Vector2(-1, -47)
+emitting = false
+amount = 80
+lifetime = 1.04
+direction = Vector2(0, -1)
+spread = 7.44
+gravity = Vector2(0, 600)
+initial_velocity_min = 744.67
+initial_velocity_max = 744.67
+scale_amount_min = 1.75
+scale_amount_max = 24.79
+scale_amount_curve = SubResource("Curve_ruv5e")
+color = Color(0.87, 0.65250003, 0, 1)
+color_ramp = SubResource("Gradient_67vs5")
+
+[node name="ignition" type="Area2D" parent="."]
+
+[node name="shape" type="CollisionShape2D" parent="ignition"]
+position = Vector2(-1, -48)
+shape = SubResource("RectangleShape2D_rg45f")
+
+[node name="particles" type="CPUParticles2D" parent="ignition"]
+position = Vector2(13, -46)
+emitting = false
+amount = 15
+lifetime = 0.19
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 149.63
+initial_velocity_max = 149.63
+scale_amount_min = 10.9
+scale_amount_max = 10.9
+scale_amount_curve = SubResource("Curve_ruv5e")
+color = Color(0.87, 0.65250003, 0, 1)
+color_ramp = SubResource("Gradient_67vs5")

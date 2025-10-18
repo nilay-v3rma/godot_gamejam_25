@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8ffu0hg82olj"]
+
+[ext_resource type="Script" uid="uid://58uutr6phpkq" path="res://firecrackers/rocket.gd" id="1_l1eic"]
+[ext_resource type="Texture2D" uid="uid://cd8ins7ol0kyr" path="res://cards/icons/5.png" id="2_l1eic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2g5ln"]
+size = Vector2(22, 97)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rg45f"]
+radius = 20.0
+height = 198.0
+
+[sub_resource type="Curve" id="Curve_ruv5e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7090909, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_67vs5"]
+offsets = PackedFloat32Array(0, 0.57216495, 1)
+colors = PackedColorArray(0.96, 0.43199998, 0.43199998, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg45f"]
+size = Vector2(29, 46)
+
+[node name="Rocket" type="RigidBody2D"]
+position = Vector2(-3, 20)
+script = ExtResource("1_l1eic")
+ignite_time = 2.0
+flare_time = 6.2
+metadata/_custom_type_script = "uid://d3e5x7gwdsjoj"
+metadata/_edit_group_ = true
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(1.0000006, 1.9073486e-06)
+rotation = -0.47996554
+texture = ExtResource("2_l1eic")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(3, -22)
+shape = SubResource("RectangleShape2D_2g5ln")
+
+[node name="flare" type="Area2D" parent="."]
+
+[node name="shape" type="CollisionShape2D" parent="flare"]
+position = Vector2(0, 121)
+shape = SubResource("CapsuleShape2D_rg45f")
+
+[node name="particles" type="CPUParticles2D" parent="flare"]
+position = Vector2(1, 32)
+emitting = false
+amount = 38
+lifetime = 0.27
+direction = Vector2(0, 1)
+spread = 7.44
+gravity = Vector2(0, 600)
+initial_velocity_min = 744.67
+initial_velocity_max = 744.67
+scale_amount_min = 1.75
+scale_amount_max = 24.79
+scale_amount_curve = SubResource("Curve_ruv5e")
+color = Color(0.87, 0.65250003, 0, 1)
+color_ramp = SubResource("Gradient_67vs5")
+
+[node name="ignition" type="Area2D" parent="."]
+
+[node name="shape" type="CollisionShape2D" parent="ignition"]
+position = Vector2(0.5, 49)
+shape = SubResource("RectangleShape2D_rg45f")
+
+[node name="particles" type="CPUParticles2D" parent="ignition"]
+position = Vector2(0, 58)
+emitting = false
+amount = 15
+lifetime = 0.19
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 149.63
+initial_velocity_max = 149.63
+scale_amount_min = 10.9
+scale_amount_max = 10.9
+scale_amount_curve = SubResource("Curve_ruv5e")
+color = Color(0.87, 0.65250003, 0, 1)
+color_ramp = SubResource("Gradient_67vs5")
