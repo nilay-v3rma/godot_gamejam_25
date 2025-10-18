@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0wd8p6q1l3p7"]
+
+[ext_resource type="PackedScene" uid="uid://1ctg3bgmefy7" path="res://furniture/bed/bed.tscn" id="1_58vth"]
+[ext_resource type="PackedScene" uid="uid://ihh7bfgwbl32" path="res://furniture/cupboard/cupboard.tscn" id="2_w5agp"]
+[ext_resource type="PackedScene" uid="uid://cg8lsdpmnyghg" path="res://furniture/desk/desk.tscn" id="3_ow223"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cqxi"]
+size = Vector2(409, 321)
+
+[node name="rightstage2" type="StaticBody2D"]
+metadata/_edit_group_ = true
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2cqxi")
+
+[node name="Bed" parent="." instance=ExtResource("1_58vth")]
+position = Vector2(9, -187)
+
+[node name="Cupboard" parent="." instance=ExtResource("2_w5agp")]
+position = Vector2(-20, -330)
+
+[node name="Desk" parent="." instance=ExtResource("3_ow223")]
+position = Vector2(-146, -204)
+
+[node name="Desk2" parent="." instance=ExtResource("3_ow223")]
+position = Vector2(115, -252)

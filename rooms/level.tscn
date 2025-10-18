@@ -1,10 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cg7ut2wo8cenf"]
+[gd_scene load_steps=27 format=3 uid="uid://cg7ut2wo8cenf"]
 
 [ext_resource type="Texture2D" uid="uid://cub36ieoka36c" path="res://rooms/level.png" id="1_0dt1f"]
-[ext_resource type="PackedScene" uid="uid://1ctg3bgmefy7" path="res://furniture/bed/bed.tscn" id="2_bj57p"]
 [ext_resource type="Texture2D" uid="uid://dn5n1o7tjftlc" path="res://gui/cardview/cardview.png" id="2_dg3qb"]
 [ext_resource type="PackedScene" uid="uid://cw6rlsf0pg15r" path="res://gui/cardslot/cardslot.tscn" id="2_knkn0"]
-[ext_resource type="PackedScene" uid="uid://ihh7bfgwbl32" path="res://furniture/cupboard/cupboard.tscn" id="3_5qnhv"]
 [ext_resource type="Script" uid="uid://cp17orsv0qrkx" path="res://gui/cardview/cardview.gd" id="3_x0uc3"]
 [ext_resource type="Texture2D" uid="uid://b77u0ve0n18kd" path="res://gui/skipturn/skip.png" id="3_yhl0x"]
 [ext_resource type="Script" uid="uid://ckc57d5gyows8" path="res://gui/skipturn/skipturn.gd" id="4_at2w1"]
@@ -14,12 +12,16 @@
 [ext_resource type="Script" uid="uid://cevw7iijqrqfo" path="res://gui/cardview/use.gd" id="5_yhl0x"]
 [ext_resource type="Script" uid="uid://b0gvrvj6sa5jt" path="res://gui/cardview/dont.gd" id="7_yhl0x"]
 [ext_resource type="Script" uid="uid://c04bpd7p32ga8" path="res://gui/base_button.gd" id="15_mlrue"]
+[ext_resource type="Texture2D" uid="uid://cjfe3bha208kg" path="res://level1.png" id="21_tdyh2"]
 [ext_resource type="Script" uid="uid://cnxh1olcic6bk" path="res://shooting/shooting_system.gd" id="22_shooting"]
+[ext_resource type="Texture2D" uid="uid://cnmmcyxttwyen" path="res://level2.png" id="22_t0xh4"]
+[ext_resource type="Texture2D" uid="uid://ce0wlhmgx16vv" path="res://level3.png" id="23_julpp"]
 [ext_resource type="Texture2D" uid="uid://bvq3pgu3wfd6h" path="res://shooting/shoot_btn.png" id="23_tdyh2"]
 [ext_resource type="Texture2D" uid="uid://cv131hv2e7rtk" path="res://startpage.png" id="24_julpp"]
 [ext_resource type="Texture2D" uid="uid://cwok0iey7c06a" path="res://start.png" id="25_6tsgs"]
 [ext_resource type="Script" uid="uid://ceiy3melp8kj7" path="res://characters/characters.gd" id="26_characters"]
 [ext_resource type="Script" uid="uid://bb1lef054vpbk" path="res://rooms/homepage.gd" id="27_homepage"]
+[ext_resource type="Script" uid="uid://b8g7ae1ic7yn0" path="res://rooms/levelpage.gd" id="28_levelpage"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cqxi"]
 size = Vector2(409, 321)
@@ -53,25 +55,6 @@ position = Vector2(-127, -206)
 [node name="Desk2" parent="leftstage" instance=ExtResource("4_bj57p")]
 position = Vector2(-19, -231)
 rotation = 1.5707964
-
-[node name="leftstage2" type="StaticBody2D" parent="."]
-position = Vector2(955, 491)
-metadata/_edit_group_ = true
-
-[node name="collision" type="CollisionShape2D" parent="leftstage2"]
-shape = SubResource("RectangleShape2D_2cqxi")
-
-[node name="Bed" parent="leftstage2" instance=ExtResource("2_bj57p")]
-position = Vector2(-61, -205)
-
-[node name="Cupboard" parent="leftstage2" instance=ExtResource("3_5qnhv")]
-position = Vector2(125, -322)
-
-[node name="Desk" parent="leftstage2" instance=ExtResource("4_bj57p")]
-position = Vector2(-44, -368)
-
-[node name="Desk2" parent="leftstage2" instance=ExtResource("4_bj57p")]
-position = Vector2(-54, -449)
 
 [node name="cardsystem" type="Node2D" parent="."]
 
@@ -208,6 +191,29 @@ position = Vector2(180, 92.00001)
 scale = Vector2(0.792, 0.65)
 texture_normal = SubResource("CompressedTexture2D_cu605")
 texture_pressed = SubResource("CompressedTexture2D_5qnhv")
+
+[node name="levelpage" type="Sprite2D" parent="."]
+position = Vector2(579, 330)
+texture = ExtResource("1_0dt1f")
+script = ExtResource("28_levelpage")
+
+[node name="level1" type="TouchScreenButton" parent="levelpage"]
+position = Vector2(-373, -206)
+texture_normal = ExtResource("21_tdyh2")
+script = ExtResource("15_mlrue")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="level2" type="TouchScreenButton" parent="levelpage"]
+position = Vector2(-209, -202)
+texture_normal = ExtResource("22_t0xh4")
+script = ExtResource("15_mlrue")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="level3" type="TouchScreenButton" parent="levelpage"]
+position = Vector2(-67, -202)
+texture_normal = ExtResource("23_julpp")
+script = ExtResource("15_mlrue")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
 
 [node name="homepage" type="Sprite2D" parent="."]
 position = Vector2(579, 328)
