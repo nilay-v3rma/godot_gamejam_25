@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cg7ut2wo8cenf"]
+[gd_scene load_steps=25 format=3 uid="uid://cg7ut2wo8cenf"]
 
 [ext_resource type="Texture2D" uid="uid://cub36ieoka36c" path="res://rooms/level.png" id="1_0dt1f"]
 [ext_resource type="PackedScene" uid="uid://1ctg3bgmefy7" path="res://furniture/bed/bed.tscn" id="2_bj57p"]
@@ -13,29 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://dxjvpi10vncpt" path="res://gui/cardview/dont.png" id="5_knkn0"]
 [ext_resource type="Script" uid="uid://cevw7iijqrqfo" path="res://gui/cardview/use.gd" id="5_yhl0x"]
 [ext_resource type="Script" uid="uid://b0gvrvj6sa5jt" path="res://gui/cardview/dont.gd" id="7_yhl0x"]
-[ext_resource type="Texture2D" uid="uid://2edaso7xyt26" path="res://gui/inventory/inventorybutton.png" id="12_wrbck"]
-[ext_resource type="Texture2D" uid="uid://dbshtf7xbm7fj" path="res://gui/inventory/inventory.png" id="14_3r5wm"]
-[ext_resource type="Texture2D" uid="uid://jokqovni5xx5" path="res://gui/inventory/cancel.png" id="15_3qwok"]
-[ext_resource type="Script" uid="uid://do3mj3b4lmtsq" path="res://gui/inventory/inventory.gd" id="15_3r5wm"]
 [ext_resource type="Script" uid="uid://c04bpd7p32ga8" path="res://gui/base_button.gd" id="15_mlrue"]
-[ext_resource type="Script" uid="uid://cltduubdh4k2e" path="res://rooms/furnitureslot.gd" id="17_15qan"]
-[ext_resource type="Texture2D" uid="uid://f5ytgrgnhqdc" path="res://gui/inventory/start.png" id="21_6b5hc"]
 [ext_resource type="Script" uid="uid://cnxh1olcic6bk" path="res://shooting/shooting_system.gd" id="22_shooting"]
 [ext_resource type="Texture2D" uid="uid://bvq3pgu3wfd6h" path="res://shooting/shoot_btn.png" id="23_tdyh2"]
+[ext_resource type="Texture2D" uid="uid://cv131hv2e7rtk" path="res://startpage.png" id="24_julpp"]
+[ext_resource type="Texture2D" uid="uid://cwok0iey7c06a" path="res://start.png" id="25_6tsgs"]
 [ext_resource type="Script" uid="uid://ceiy3melp8kj7" path="res://characters/characters.gd" id="26_characters"]
-[ext_resource type="Script" uid="uid://dmxxvib0hl8hv" path="res://cards/card_picker.gd" id="27_pyowd"]
+[ext_resource type="Script" uid="uid://bb1lef054vpbk" path="res://rooms/homepage.gd" id="27_homepage"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cqxi"]
 size = Vector2(409, 321)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t0xh4"]
-load_path = "res://.godot/imported/bed.png-22bac3ffb56fa5f5ccae6bf056c6d438.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_julpp"]
-load_path = "res://.godot/imported/cupboard.png-571998550b53c291581e51f37e01055c.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6tsgs"]
-load_path = "res://.godot/imported/desk.png-addc24e1b80bd332b5080ab501a64df9.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pyowd"]
 load_path = "res://.godot/imported/1.png-c8a8626d7213b46c94f996914ba96ea1.ctex"
@@ -85,106 +72,6 @@ position = Vector2(-44, -368)
 
 [node name="Desk2" parent="leftstage2" instance=ExtResource("4_bj57p")]
 position = Vector2(-54, -449)
-
-[node name="buildsystem" type="Node2D" parent="."]
-
-[node name="invetorybutton" type="TouchScreenButton" parent="buildsystem"]
-position = Vector2(6, 6)
-texture_normal = ExtResource("12_wrbck")
-texture_pressed = ExtResource("12_wrbck")
-script = ExtResource("15_mlrue")
-metadata/_custom_type_script = "uid://c04bpd7p32ga8"
-
-[node name="inventory" type="Sprite2D" parent="buildsystem"]
-position = Vector2(222, -234)
-texture = ExtResource("14_3r5wm")
-script = ExtResource("15_3r5wm")
-
-[node name="furnitureslot0" type="TouchScreenButton" parent="buildsystem/inventory"]
-position = Vector2(-170, -161)
-scale = Vector2(0.688, 0.66)
-texture_normal = SubResource("CompressedTexture2D_t0xh4")
-texture_pressed = SubResource("CompressedTexture2D_t0xh4")
-script = ExtResource("17_15qan")
-furniture_id = 1
-amount = 3
-metadata/_custom_type_script = "uid://c04bpd7p32ga8"
-metadata/_edit_group_ = true
-
-[node name="label" type="RichTextLabel" parent="buildsystem/inventory/furnitureslot0"]
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.636
-offset_left = 2.2888184e-05
-offset_top = -1.5258789e-05
-offset_right = 1.4534912
-offset_bottom = 30.321167
-theme_override_font_sizes/normal_font_size = 20
-text = "Name
-Available: ?"
-
-[node name="furnitureslot1" type="TouchScreenButton" parent="buildsystem/inventory"]
-position = Vector2(-13.000002, -147)
-scale = Vector2(0.688, 0.66)
-texture_normal = SubResource("CompressedTexture2D_julpp")
-texture_pressed = SubResource("CompressedTexture2D_julpp")
-script = ExtResource("17_15qan")
-furniture_id = 2
-amount = 3
-metadata/_custom_type_script = "uid://c04bpd7p32ga8"
-
-[node name="label" type="RichTextLabel" parent="buildsystem/inventory/furnitureslot1"]
-anchors_preset = -1
-anchor_left = 0.029000001
-anchor_top = 1.0
-anchor_right = 1.044
-anchor_bottom = 1.3640001
-offset_left = 0.0069770813
-offset_top = -1.5258789e-05
-offset_right = -0.03955841
-offset_bottom = -0.09094238
-theme_override_font_sizes/normal_font_size = 20
-text = "Name
-Available: ?"
-
-[node name="furnitureslot2" type="TouchScreenButton" parent="buildsystem/inventory"]
-position = Vector2(-165, -50.000008)
-scale = Vector2(0.688, 0.66)
-texture_normal = SubResource("CompressedTexture2D_6tsgs")
-texture_pressed = SubResource("CompressedTexture2D_6tsgs")
-script = ExtResource("17_15qan")
-furniture_id = 3
-amount = 3
-metadata/_custom_type_script = "uid://c04bpd7p32ga8"
-
-[node name="label" type="RichTextLabel" parent="buildsystem/inventory/furnitureslot2"]
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.2210001
-anchor_bottom = 2.069
-offset_left = 2.2888184e-05
-offset_top = -1.5258789e-05
-offset_right = -0.006965637
-offset_bottom = 0.011169434
-theme_override_font_sizes/normal_font_size = 20
-text = "Name
-Available: ?"
-
-[node name="cancel" type="TouchScreenButton" parent="buildsystem/inventory"]
-position = Vector2(42, 144)
-scale = Vector2(0.88, 0.76)
-texture_normal = ExtResource("15_3qwok")
-texture_pressed = ExtResource("15_3qwok")
-script = ExtResource("15_mlrue")
-metadata/_custom_type_script = "uid://c04bpd7p32ga8"
-
-[node name="start" type="TouchScreenButton" parent="buildsystem"]
-position = Vector2(457, 346)
-texture_normal = ExtResource("21_6b5hc")
-texture_pressed = ExtResource("21_6b5hc")
-script = ExtResource("15_mlrue")
-metadata/_custom_type_script = "uid://c04bpd7p32ga8"
 
 [node name="cardsystem" type="Node2D" parent="."]
 
@@ -322,16 +209,17 @@ scale = Vector2(0.792, 0.65)
 texture_normal = SubResource("CompressedTexture2D_cu605")
 texture_pressed = SubResource("CompressedTexture2D_5qnhv")
 
-[node name="cardpicker" type="Node2D" parent="."]
-script = ExtResource("27_pyowd")
+[node name="homepage" type="Sprite2D" parent="."]
+position = Vector2(579, 328)
+texture = ExtResource("24_julpp")
+script = ExtResource("27_homepage")
 
-[connection signal="button_activated" from="buildsystem/invetorybutton" to="buildsystem/inventory" method="_on_invetorybutton_button_activated"]
-[connection signal="furniture_picked" from="buildsystem/inventory/furnitureslot0" to="buildsystem/inventory" method="_on_furnitureslot_0_furniture_picked"]
-[connection signal="furniture_picked" from="buildsystem/inventory/furnitureslot1" to="buildsystem/inventory" method="_on_furnitureslot_0_furniture_picked"]
-[connection signal="furniture_picked" from="buildsystem/inventory/furnitureslot2" to="buildsystem/inventory" method="_on_furnitureslot_0_furniture_picked"]
-[connection signal="button_activated" from="buildsystem/inventory/cancel" to="buildsystem/inventory" method="_on_cancel_button_activated"]
-[connection signal="button_activated" from="buildsystem/start" to="buildsystem/inventory" method="_on_start_button_activated"]
-[connection signal="button_activated" from="buildsystem/start" to="cardsystem/cardview" method="_on_start_button_activated"]
+[node name="start1" type="TouchScreenButton" parent="homepage"]
+position = Vector2(-114, 126)
+texture_normal = ExtResource("25_6tsgs")
+script = ExtResource("15_mlrue")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
 [connection signal="card_used" from="cardsystem/cardslot0" to="cardsystem/cardview" method="_on_cardslot_0_card_used"]
 [connection signal="card_used" from="cardsystem/cardslot1" to="cardsystem/cardview" method="_on_cardslot_1_card_used"]
 [connection signal="card_used" from="cardsystem/cardslot2" to="cardsystem/cardview" method="_on_cardslot_2_card_used"]
