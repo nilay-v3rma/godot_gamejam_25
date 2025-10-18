@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cxkiihrs7gpwc"]
+
+[ext_resource type="Texture2D" uid="uid://dfw2fu41fwi27" path="res://cards/icons/6.png" id="1_i8l0q"]
+[ext_resource type="Script" uid="uid://dx0nhxajjomkd" path="res://cards/card_data.gd" id="2_guvfm"]
+
+[resource]
+script = ExtResource("2_guvfm")
+id = 5
+name = "Chakri"
+icon = ExtResource("1_i8l0q")
+description = "It spins."
+cooldown_turns = 6
+effect_type = "explosive"
+scene = "res://firecrackers/sutali.tscn"
+metadata/_custom_type_script = "uid://dx0nhxajjomkd"

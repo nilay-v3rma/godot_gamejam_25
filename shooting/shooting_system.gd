@@ -163,7 +163,7 @@ func enable_card_system():
 func spawn_and_launch_firecracker(angle: float, power: float):
 	"""Create and launch a firecracker with the given parameters"""
 	# Load the firecracker scene
-	var firecracker_scene = preload("res://firecrackers/firecracker.tscn")
+	var firecracker_scene = load(current_card_data.scene)
 	var firecracker = firecracker_scene.instantiate()
 	
 	# Add firecracker to the scene

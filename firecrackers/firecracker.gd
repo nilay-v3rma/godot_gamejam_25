@@ -24,7 +24,7 @@ var base_fps: float = 60.0
 var ignition_in_count: int
 var flare_lasts_count: int 
 var is_flaring: bool = false
-var is_ignited: bool = true
+var is_ignited: bool = false
 
 signal finished_flaring
 signal just_ignited
@@ -166,6 +166,7 @@ func _physics_process(_delta):
 			queue_free()
 
 func _on_flare_area_entered(area):
-	var firecracker = area.get_parent().get_parent()  # ignition/shape -> ignition -> Firecracker
-	if firecracker is Firecracker and not firecracker.is_ignited:
+	print()
+	var firecracker = area.get_parent()  # ignition/shape -> ignition -> Firecracker
+	if firecracker is Firecracker and not firecracker.is_ignited and area.name == "ignition" and self.is_flaring:
 		firecracker.ignite()

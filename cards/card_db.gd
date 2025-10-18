@@ -4,7 +4,7 @@ class_name CardDB
 var cards: Dictionary = {}
 
 func _ready() -> void:
-	for i in range(1, 5):
+	for i in range(1, 7):
 		_register_card("res://cards/card data/card"+str(i)+".tres")
 
 func _register_card(path: String):

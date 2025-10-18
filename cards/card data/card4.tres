@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://q4behueu1tsw"]
 
-[ext_resource type="Texture2D" uid="uid://b2mwb4jvxwr5n" path="res://cards/icons/4.png" id="1_o0f8y"]
+[ext_resource type="Texture2D" uid="uid://cg6wv6ggqrfix" path="res://cards/icons/4.png" id="1_o0f8y"]
 [ext_resource type="Script" uid="uid://dx0nhxajjomkd" path="res://cards/card_data.gd" id="2_t3q1m"]
 
 [resource]
@@ -11,4 +11,5 @@ icon = ExtResource("1_o0f8y")
 description = "Its a matchstick, Burns violently for a tiny duration to ignite surrounding explosives. Dies out quickly."
 cooldown_turns = 6
 effect_type = "ignition"
+scene = "res://firecrackers/ignitedmatchstick.tscn"
 metadata/_custom_type_script = "uid://dx0nhxajjomkd"

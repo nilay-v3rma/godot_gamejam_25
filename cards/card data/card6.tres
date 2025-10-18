@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://ckldyoleug4bw"]
+
+[ext_resource type="Texture2D" uid="uid://cd8ins7ol0kyr" path="res://cards/icons/5.png" id="1_ibxam"]
+[ext_resource type="Script" uid="uid://dx0nhxajjomkd" path="res://cards/card_data.gd" id="2_ak1ce"]
+
+[resource]
+script = ExtResource("2_ak1ce")
+id = 6
+name = "Rocket"
+icon = ExtResource("1_ibxam")
+description = "Its a rocket. It flies off when ignited."
+cooldown_turns = 6
+effect_type = "explosive"
+scene = "res://firecrackers/rocket.tscn"
+metadata/_custom_type_script = "uid://dx0nhxajjomkd"
