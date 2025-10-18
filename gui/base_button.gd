@@ -7,6 +7,7 @@ var original_scale: Vector2
 var original_pos: Vector2
 var squish_amount: float = 0.7
 var rect: Rect2 # for bounds checking of the button
+var pressable: bool = true
 
 signal button_activated(data)
 
@@ -37,5 +38,9 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event):
 	if event is InputEventScreenTouch and not event.pressed:
 		var local_pos = to_local(event.position)
-		if rect.has_point(local_pos):
+		if rect.has_point(local_pos) and pressable:
 			button_activated.emit(0)
+
+
+func _on_characters_shooting_completed() -> void:
+	pass # Replace with function body.

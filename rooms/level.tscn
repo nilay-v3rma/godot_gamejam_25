@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cg7ut2wo8cenf"]
+[gd_scene load_steps=28 format=3 uid="uid://cg7ut2wo8cenf"]
 
 [ext_resource type="Texture2D" uid="uid://cub36ieoka36c" path="res://rooms/level.png" id="1_0dt1f"]
 [ext_resource type="Texture2D" uid="uid://v1rews1v410a" path="res://gui/cardview/cardview.png" id="2_dg3qb"]
@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://b2t57t2xu758r" path="res://shooting/shoot_btn.png" id="23_tdyh2"]
 [ext_resource type="Texture2D" uid="uid://t5bd8er0j40k" path="res://characters/char.png" id="24_julpp"]
 [ext_resource type="Texture2D" uid="uid://ff6puiiticmp" path="res://characters/char_throw.png" id="25_6tsgs"]
-[ext_resource type="Script" path="res://characters/characters.gd" id="26_characters"]
+[ext_resource type="Script" uid="uid://ceiy3melp8kj7" path="res://characters/characters.gd" id="26_characters"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cqxi"]
 size = Vector2(384, 304)
@@ -293,10 +293,12 @@ texture_pressed = ExtResource("25_6tsgs")
 [connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem/cardslot1" method="_on_cardview_card_deployed"]
 [connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem/cardslot2" method="_on_cardview_card_deployed"]
 [connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem/cardslot3" method="_on_cardview_card_deployed"]
-[connection signal="card_deployed" from="cardsystem/cardview" to="characters" method="_on_card_deployed"]
 [connection signal="card_deployed" from="cardsystem/cardview" to="shootingsystem" method="_on_card_deployed"]
+[connection signal="card_deployed" from="cardsystem/cardview" to="characters" method="_on_card_deployed"]
 [connection signal="button_activated" from="cardsystem/cardview/use" to="cardsystem/cardview" method="_on_use_button_activated"]
 [connection signal="button_activated" from="cardsystem/cardview/dont" to="cardsystem/cardview" method="_on_dont_button_activated"]
 [connection signal="value_changed" from="shootingsystem/HScrollBar" to="shootingsystem" method="_on_rotation_changed"]
 [connection signal="value_changed" from="shootingsystem/HScrollBar2" to="shootingsystem" method="_on_power_changed"]
 [connection signal="pressed" from="shootingsystem/Shoot" to="shootingsystem" method="_on_shoot_button_pressed"]
+[connection signal="shooting_completed" from="characters" to="cardsystem/cardview" method="_on_characters_shooting_completed"]
+[connection signal="shooting_started" from="characters" to="cardsystem/cardview" method="_on_characters_shooting_started"]

@@ -1,5 +1,8 @@
-
 extends Node2D
+
+# Signals to card system to disable or enable
+signal shooting_started
+signal shooting_completed
 
 # Reference to the shooting system
 @onready var shooting_system: Node2D = get_node("../shootingsystem")
@@ -92,6 +95,7 @@ func _on_card_deployed(slot_index: int, card_id: int):
 	if card_id != -1:  # -1 means skip turn, so don't make characters selectable
 		print("Card deployed, enabling character selection")
 		set_characters_selectable(true)
+		shooting_started.emit()
 	else:
 		print("Turn skipped, disabling character selection")
 		set_characters_selectable(false)
@@ -101,3 +105,4 @@ func _on_shooting_completed():
 	print("Shooting completed, disabling character selection")
 	set_characters_selectable(false)
 	reset_character_appearance()
+	shooting_completed.emit()

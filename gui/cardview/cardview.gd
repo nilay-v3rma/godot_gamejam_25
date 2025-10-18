@@ -72,3 +72,11 @@ func _on_skipturn_skipturn() -> void:
 
 func _on_start_button_activated(data: Variant) -> void:
 	get_parent().visible = true
+
+
+func _on_characters_shooting_started() -> void:
+	get_parent().visible = false
+
+
+func _on_characters_shooting_completed() -> void:
+	get_parent().visible = true
