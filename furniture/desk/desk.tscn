@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cg8lsdpmnyghg"]
 
 [ext_resource type="Script" uid="uid://xva554co7d0k" path="res://furniture/draggable.gd" id="1_dw2ne"]
-[ext_resource type="Texture2D" uid="uid://usv22om4osb7" path="res://furniture/desk/desk.png" id="1_sqnfd"]
+[ext_resource type="Texture2D" uid="uid://ll1aln5ae7x8" path="res://furniture/desk/desk.png" id="1_sqnfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqnfd"]
-size = Vector2(100, 23)
+size = Vector2(130, 21.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw2ne"]
-size = Vector2(15.5, 49.5)
+size = Vector2(15.5, 57.75)
 
 [node name="Desk" type="RigidBody2D"]
 script = ExtResource("1_dw2ne")
@@ -17,13 +17,13 @@ metadata/_custom_type_script = "uid://xva554co7d0k"
 texture = ExtResource("1_sqnfd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -23.5)
+position = Vector2(0, -30)
 shape = SubResource("RectangleShape2D_sqnfd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-36.5, 11.5)
+position = Vector2(-51, 9)
 shape = SubResource("RectangleShape2D_dw2ne")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(34, 11)
+position = Vector2(53, 9)
 shape = SubResource("RectangleShape2D_dw2ne")

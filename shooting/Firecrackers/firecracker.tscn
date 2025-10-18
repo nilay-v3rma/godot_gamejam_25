@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://duimf8ua7btog"]
+
+[ext_resource type="Texture2D" uid="uid://cntge2ew35lun" path="res://cards/icons/3.png" id="1_o4bc4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2xdfr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qammy"]
+radius = 40.012497
+
+[node name="Firecracker" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_2xdfr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o4bc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qammy")
