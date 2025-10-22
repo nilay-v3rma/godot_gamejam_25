@@ -11,14 +11,19 @@ config_version=5
 [application]
 
 config/name="Godot GameJam 25"
-run/main_scene="uid://cg7ut2wo8cenf"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+run/main_scene="res://rooms/level.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 CardDBInst="*res://cards/card_db.gd"
 FurnitureDBInst="*res://furniture/furniture_db.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input_devices]
 
