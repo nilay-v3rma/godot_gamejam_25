@@ -14,6 +14,7 @@ var viewing_card_id: int
 var viewing_card: CardData
 var db: CardDB
 var invoked_card_slot: int
+var activate_card_slot: bool = false
 
 # main signal # for card skip, -1 -1 is emitted
 signal card_deployed(slot_index: int, card_id: int)
@@ -58,17 +59,29 @@ func _on_dont_button_activated(data: Variant) -> void:
 
 
 func _on_cardslot_0_card_used(card_id: Variant) -> void:
-	invoked_card_slot = 0
-	card_used(card_id)
+	if(activate_card_slot):
+		invoked_card_slot = 0
+		card_used(card_id)
+		activate_card_slot = false
 func _on_cardslot_1_card_used(card_id: Variant) -> void:
-	invoked_card_slot = 1
-	card_used(card_id)
+	if(activate_card_slot):
+		invoked_card_slot = 1
+		card_used(card_id)
+		activate_card_slot = false
 func _on_cardslot_2_card_used(card_id: Variant) -> void:
-	invoked_card_slot = 2
-	card_used(card_id)
+	if(activate_card_slot):
+		invoked_card_slot = 2
+		card_used(card_id)
+		activate_card_slot = false
 func _on_cardslot_3_card_used(card_id: Variant) -> void:
-	invoked_card_slot = 3
-	card_used(card_id)
+	if(activate_card_slot):
+		invoked_card_slot = 3
+		card_used(card_id)
+		activate_card_slot = false
+
+func _on_cardslot_released() -> void:
+	print("released")
+	activate_card_slot = true
 
 
 func _on_skipturn_skipturn() -> void:
