@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8ffu0hg82olj"]
 
-[ext_resource type="Script" uid="uid://58uutr6phpkq" path="res://firecrackers/rocket.gd" id="1_l1eic"]
+[ext_resource type="Script" path="res://firecrackers/rocket.gd" id="1_l1eic"]
 [ext_resource type="Texture2D" uid="uid://cd8ins7ol0kyr" path="res://cards/icons/5.png" id="2_l1eic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2g5ln"]
@@ -11,12 +11,12 @@ radius = 20.0
 height = 198.0
 
 [sub_resource type="Curve" id="Curve_ruv5e"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7090909, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.709091, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_67vs5"]
-offsets = PackedFloat32Array(0, 0.57216495, 1)
-colors = PackedColorArray(0.96, 0.43199998, 0.43199998, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.572165, 1)
+colors = PackedColorArray(0.96, 0.432, 0.432, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rg45f"]
 size = Vector2(29, 46)
@@ -25,13 +25,13 @@ size = Vector2(29, 46)
 position = Vector2(-3, 20)
 script = ExtResource("1_l1eic")
 ignite_time = 2.0
-flare_time = 6.2
+flare_time = 4.0
 metadata/_custom_type_script = "uid://d3e5x7gwdsjoj"
 metadata/_edit_group_ = true
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(1.0000006, 1.9073486e-06)
-rotation = -0.47996554
+position = Vector2(1, 1.90735e-06)
+rotation = -0.479966
 texture = ExtResource("2_l1eic")
 
 [node name="collision" type="CollisionShape2D" parent="."]
@@ -57,7 +57,7 @@ initial_velocity_max = 744.67
 scale_amount_min = 1.75
 scale_amount_max = 24.79
 scale_amount_curve = SubResource("Curve_ruv5e")
-color = Color(0.87, 0.65250003, 0, 1)
+color = Color(0.87, 0.6525, 0, 1)
 color_ramp = SubResource("Gradient_67vs5")
 
 [node name="ignition" type="Area2D" parent="."]
@@ -79,5 +79,5 @@ initial_velocity_max = 149.63
 scale_amount_min = 10.9
 scale_amount_max = 10.9
 scale_amount_curve = SubResource("Curve_ruv5e")
-color = Color(0.87, 0.65250003, 0, 1)
+color = Color(0.87, 0.6525, 0, 1)
 color_ramp = SubResource("Gradient_67vs5")

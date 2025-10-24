@@ -39,55 +39,62 @@ var launch_power: float
 var card_data: CardData
 
 func _ready() -> void:
-	$flare.connect("area_entered", Callable(self, "_on_flare_area_entered"))
-
-# this function will most likely not be used anymore because each firecracker
-# has its own scene now
-func setup_with_card_data(data: CardData):
-	"""Configure the firecracker based on card data"""
-	card_data = data
-	
-	if not card_data:
-		print("Warning: No card data provided to firecracker")
-		return
-	
-	print("Setting up firecracker with card: ", card_data.name)
-	
-	# Set the sprite texture to the card's icon
-	if sprite and card_data.icon:
-		sprite.texture = card_data.icon
-		
-	# Adjust properties based on card type
-	match card_data.id:
-		1: # Simple Cracker
-			sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)  # Red, fully opaque
-			sprite.scale = Vector2(0.3, 0.1)
-			mass = 0.3
-		2: # Fountain
-			sprite.modulate = Color(1.0, 0.5, 0.0, 1.0)  # Orange, fully opaque
-			sprite.scale = Vector2(0.4, 0.2)
-			mass = 0.4
-		3: # Sutli Bomb
-			sprite.modulate = Color(1.0, 1.0, 0.0, 1.0)  # Yellow, fully opaque
-			sprite.scale = Vector2(0.5, 0.3)
-			mass = 0.6
-		4: # Ignited Matchstick
-			sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)  # White, fully opaque
-			sprite.scale = Vector2(0.2, 0.05)
-			mass = 0.1
-		_:
-			# Default firecracker
-			sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)  # Red, fully opaque
-			sprite.scale = Vector2(0.3, 0.1)
-	# Setup physics - using default gravity scale
-	pass
-
-func launch(angle_degrees: float, power: float, start_position: Vector2):
-	"""Launch the firecracker with given angle and power"""
-	
+	$flare.monitoring = true
+	$ignition.monitoring = true
+	## signal method no longer exist
+	#$flare.connect("area_entered", Callable(self, "_on_flare_area_entered")) 
 	# set ignition time:
 	ignition_in_count = ignite_time * base_fps
 	flare_lasts_count = flare_time * base_fps
+	#var x = Vector2(0.4, 0.4) # the firecrackres are too big
+	#$sprite.scale = x
+	#$collision.scale = x
+	#$flare.scale = x
+	#$ignition.scale = x
+
+# this function will most likely not be used anymore because each firecracker
+# has its own scene now
+#func setup_with_card_data(data: CardData):
+	#"""Configure the firecracker based on card data"""
+	#card_data = data
+	#
+	#if not card_data:
+		#print("Warning: No card data provided to firecracker")
+		#return
+	#
+	#print("Setting up firecracker with card: ", card_data.name)
+	#
+	## Set the sprite texture to the card's icon
+	#if sprite and card_data.icon:
+		#sprite.texture = card_data.icon
+		#
+	## Adjust properties based on card type
+	#match card_data.id:
+		#1: # Simple Cracker
+			#sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)  # Red, fully opaque
+			#sprite.scale = Vector2(0.3, 0.1)
+			#mass = 0.3
+		#2: # Fountain
+			#sprite.modulate = Color(1.0, 0.5, 0.0, 1.0)  # Orange, fully opaque
+			#sprite.scale = Vector2(0.4, 0.2)
+			#mass = 0.4
+		#3: # Sutli Bomb
+			#sprite.modulate = Color(1.0, 1.0, 0.0, 1.0)  # Yellow, fully opaque
+			#sprite.scale = Vector2(0.5, 0.3)
+			#mass = 0.6
+		#4: # Ignited Matchstick
+			#sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)  # White, fully opaque
+			#sprite.scale = Vector2(0.2, 0.05)
+			#mass = 0.1
+		#_:
+			## Default firecracker
+			#sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)  # Red, fully opaque
+			#sprite.scale = Vector2(0.3, 0.1)
+	## Setup physics - using default gravity scale
+	#pass
+
+func launch(angle_degrees: float, power: float, start_position: Vector2):
+	"""Launch the firecracker with given angle and power"""
 	
 	# Set position
 	global_position = start_position
@@ -148,16 +155,21 @@ func explode():
 
 func _physics_process(_delta):
 	"""Update firecracker during flight"""
-	# Add rotation based on velocity for visual effect
-	if linear_velocity.length() > 10:
-		rotation = linear_velocity.angle()
-	
-	if is_ignited and ignition_in_count:
+	## Removed this to avoid rigid body goofiness
+	# # Add rotation based on velocity for visual effect
+	#if linear_velocity.length() > 10:
+		#rotation = linear_velocity.angle()
+	if is_flaring:
+		for area in $flare.get_overlapping_areas():
+			if area.name == "ignition" and area.get_parent() is Firecracker:
+				if not area.get_parent().is_ignited:
+					area.get_parent().ignite()
+	if is_ignited and ignition_in_count > 0:
 		ignition_in_count -= 1
 		if (ignition_in_count == 0):
 			start_flare()
 	
-	if is_flaring and flare_lasts_count:
+	if is_flaring and flare_lasts_count > 0:
 		flare_lasts_count -= 1
 		if (flare_lasts_count == 0):
 			# KILL YOURSELF
@@ -165,8 +177,9 @@ func _physics_process(_delta):
 			explode()
 			queue_free()
 
-func _on_flare_area_entered(area):
-	print()
-	var firecracker = area.get_parent()  # ignition/shape -> ignition -> Firecracker
-	if firecracker is Firecracker and not firecracker.is_ignited and area.name == "ignition" and self.is_flaring:
-		firecracker.ignite()
+## Moved to _physicss_process
+#func _on_flare_area_entered(area):
+	#print("oshiete yo, oshiete yoo")
+	#var firecracker = area.get_parent()  # ignition -> Firecracker
+	#if firecracker is Firecracker and not firecracker.is_ignited and area.name == "ignition" and is_flaring:
+		#firecracker.ignite()

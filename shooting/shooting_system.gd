@@ -169,16 +169,17 @@ func spawn_and_launch_firecracker(angle: float, power: float):
 	"""Create and launch a firecracker with the given parameters"""
 	# Load the firecracker scene
 	var firecracker_scene = load(current_card_data.scene)
-	var firecracker = firecracker_scene.instantiate()
+	var firecracker: Firecracker = firecracker_scene.instantiate()
 	
 	# Add firecracker to the scene
 	get_tree().current_scene.add_child(firecracker)
 	
-	# Setup firecracker with card data if available
-	if current_card_data:
-		firecracker.setup_with_card_data(current_card_data)
-	else:
-		print("Warning: No card data available for firecracker")
+	## we don't use this stuff no longer
+	# # Setup firecracker with card data if available
+	#if current_card_data:
+		#firecracker.setup_with_card_data(current_card_data)
+	#else:
+		#print("Warning: No card data available for firecracker")
 	
 	# Launch the firecracker from the base position
 	firecracker.launch(angle, power, base_position)

@@ -10,8 +10,7 @@ func _ready():
 
 func _physics_process(delta):
 	super(delta)
-	if is_flaring:  # <-- changed from 'running'
-		# Apply thrust in the local up direction
+	if is_flaring:
 		var thrust = Vector2.UP.rotated(rotation) * thrust_force * delta
 		apply_central_impulse(thrust)
 		# Slight random wiggle to mimic a real rocket

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://tpjwaes6jsbx"]
 
-[ext_resource type="Script" uid="uid://dx0nhxajjomkd" path="res://cards/card_data.gd" id="1_2qfdp"]
+[ext_resource type="Script" path="res://cards/card_data.gd" id="1_2qfdp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pyowd"]
 load_path = "res://.godot/imported/1.png-c8a8626d7213b46c94f996914ba96ea1.ctex"

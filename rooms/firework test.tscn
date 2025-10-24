@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmuukbbdj0ofq"]
+
+[ext_resource type="PackedScene" uid="uid://2notwrdbbu00" path="res://firecrackers/chakri.tscn" id="1_uyrvo"]
+[ext_resource type="PackedScene" uid="uid://b0pltgcvdm7pq" path="res://firecrackers/ignitedmatchstick.tscn" id="2_7j7m5"]
+[ext_resource type="PackedScene" uid="uid://ctv6r3rdjqxwe" path="res://firecrackers/simplecracker.tscn" id="3_w38rh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cna4p"]
+size = Vector2(1221, 305.5)
+
+[node name="FireworkTest" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 676)
+shape = SubResource("RectangleShape2D_cna4p")
+
+[node name="Chakri" parent="." instance=ExtResource("1_uyrvo")]
+position = Vector2(1644, -282)
+
+[node name="Ignited Matchstick" parent="." instance=ExtResource("2_7j7m5")]
+position = Vector2(461, 398)
+
+[node name="Simple Cracker" parent="." instance=ExtResource("3_w38rh")]
+position = Vector2(457, 99)
+flare_time = 5.0
