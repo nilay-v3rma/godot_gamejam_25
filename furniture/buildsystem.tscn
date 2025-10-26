@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcb8pu4nqa3x6"]
+
+[ext_resource type="Texture2D" uid="uid://2edaso7xyt26" path="res://gui/inventory/inventorybutton.png" id="1_byr44"]
+[ext_resource type="Script" uid="uid://c04bpd7p32ga8" path="res://gui/base_button.gd" id="2_xtdd6"]
+[ext_resource type="Texture2D" uid="uid://dbshtf7xbm7fj" path="res://gui/inventory/inventory.png" id="3_1wmdb"]
+[ext_resource type="Script" uid="uid://do3mj3b4lmtsq" path="res://gui/inventory/inventory.gd" id="4_k5xd8"]
+[ext_resource type="Texture2D" uid="uid://deska0sre0fa1" path="res://furniture/bed/bed.png" id="5_ydokr"]
+[ext_resource type="Script" uid="uid://cltduubdh4k2e" path="res://rooms/furnitureslot.gd" id="6_f6i2w"]
+[ext_resource type="Texture2D" uid="uid://deebpy26bhy0p" path="res://furniture/cupboard/cupboard.png" id="7_1kala"]
+[ext_resource type="Texture2D" uid="uid://ll1aln5ae7x8" path="res://furniture/desk/desk.png" id="8_vu7bm"]
+[ext_resource type="Texture2D" uid="uid://jokqovni5xx5" path="res://gui/inventory/cancel.png" id="9_6dnax"]
+[ext_resource type="Texture2D" uid="uid://f5ytgrgnhqdc" path="res://gui/inventory/start.png" id="10_y0nab"]
+
+[node name="buildsystem" type="Node2D"]
+
+[node name="invetorybutton" type="TouchScreenButton" parent="."]
+position = Vector2(21, 17)
+texture_normal = ExtResource("1_byr44")
+texture_pressed = ExtResource("1_byr44")
+script = ExtResource("2_xtdd6")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="inventory" type="Sprite2D" parent="."]
+position = Vector2(240, -313)
+texture = ExtResource("3_1wmdb")
+script = ExtResource("4_k5xd8")
+
+[node name="furnitureslot0" type="TouchScreenButton" parent="inventory"]
+position = Vector2(-170, -161)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("5_ydokr")
+texture_pressed = ExtResource("5_ydokr")
+script = ExtResource("6_f6i2w")
+furniture_id = 1
+amount = 3
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+metadata/_edit_group_ = true
+
+[node name="label" type="RichTextLabel" parent="inventory/furnitureslot0"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.636
+offset_left = 2.28882e-05
+offset_top = -1.52588e-05
+offset_right = 1.45349
+offset_bottom = 30.3212
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+
+[node name="furnitureslot1" type="TouchScreenButton" parent="inventory"]
+position = Vector2(-13, -147)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("7_1kala")
+texture_pressed = ExtResource("7_1kala")
+script = ExtResource("6_f6i2w")
+furniture_id = 2
+amount = 3
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="label" type="RichTextLabel" parent="inventory/furnitureslot1"]
+anchors_preset = -1
+anchor_left = 0.029
+anchor_top = 1.0
+anchor_right = 1.044
+anchor_bottom = 1.364
+offset_left = 0.00697708
+offset_top = -1.52588e-05
+offset_right = -0.0395584
+offset_bottom = -0.0909424
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+
+[node name="furnitureslot2" type="TouchScreenButton" parent="inventory"]
+position = Vector2(-165, -50)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("8_vu7bm")
+texture_pressed = ExtResource("8_vu7bm")
+script = ExtResource("6_f6i2w")
+furniture_id = 3
+amount = 3
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="label" type="RichTextLabel" parent="inventory/furnitureslot2"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.221
+anchor_bottom = 2.069
+offset_left = 2.28882e-05
+offset_top = -1.52588e-05
+offset_right = -0.00696564
+offset_bottom = 0.0111694
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+
+[node name="cancel" type="TouchScreenButton" parent="inventory"]
+position = Vector2(42, 144)
+scale = Vector2(0.88, 0.76)
+texture_normal = ExtResource("9_6dnax")
+texture_pressed = ExtResource("9_6dnax")
+script = ExtResource("2_xtdd6")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="start" type="TouchScreenButton" parent="."]
+position = Vector2(462, 530)
+texture_normal = ExtResource("10_y0nab")
+texture_pressed = ExtResource("10_y0nab")
+script = ExtResource("2_xtdd6")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[connection signal="button_activated" from="invetorybutton" to="inventory" method="_on_invetorybutton_button_activated"]
+[connection signal="furniture_picked" from="inventory/furnitureslot0" to="inventory" method="_on_furnitureslot_0_furniture_picked"]
+[connection signal="furniture_picked" from="inventory/furnitureslot1" to="inventory" method="_on_furnitureslot_0_furniture_picked"]
+[connection signal="furniture_picked" from="inventory/furnitureslot2" to="inventory" method="_on_furnitureslot_0_furniture_picked"]
+[connection signal="button_activated" from="inventory/cancel" to="inventory" method="_on_cancel_button_activated"]
+[connection signal="button_activated" from="start" to="inventory" method="_on_start_button_activated"]

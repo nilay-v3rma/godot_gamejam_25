@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8ffu0hg82olj"]
 
-[ext_resource type="Script" path="res://firecrackers/rocket.gd" id="1_l1eic"]
+[ext_resource type="Script" uid="uid://58uutr6phpkq" path="res://firecrackers/rocket.gd" id="1_l1eic"]
 [ext_resource type="Texture2D" uid="uid://cd8ins7ol0kyr" path="res://cards/icons/5.png" id="2_l1eic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2g5ln"]
@@ -22,20 +22,18 @@ colors = PackedColorArray(0.96, 0.432, 0.432, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 size = Vector2(29, 46)
 
 [node name="Rocket" type="RigidBody2D"]
-position = Vector2(-3, 20)
 script = ExtResource("1_l1eic")
 ignite_time = 2.0
 flare_time = 4.0
 metadata/_custom_type_script = "uid://d3e5x7gwdsjoj"
-metadata/_edit_group_ = true
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(1, 1.90735e-06)
-rotation = -0.479966
+position = Vector2(0, -1.364242e-12)
+rotation = -0.4886922
 texture = ExtResource("2_l1eic")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(3, -22)
+position = Vector2(1, -22)
 shape = SubResource("RectangleShape2D_2g5ln")
 
 [node name="flare" type="Area2D" parent="."]

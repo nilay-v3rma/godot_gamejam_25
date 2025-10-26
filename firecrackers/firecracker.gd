@@ -30,6 +30,8 @@ signal finished_flaring
 signal just_ignited
 signal started_flaring
 
+var materialize_in: int = base_fps/3
+
 # Trajectory variables
 var initial_velocity: Vector2
 var launch_angle: float
@@ -46,11 +48,13 @@ func _ready() -> void:
 	# set ignition time:
 	ignition_in_count = ignite_time * base_fps
 	flare_lasts_count = flare_time * base_fps
-	#var x = Vector2(0.4, 0.4) # the firecrackres are too big
-	#$sprite.scale = x
-	#$collision.scale = x
-	#$flare.scale = x
-	#$ignition.scale = x
+	var x = Vector2(0.4, 0.4) # the firecrackres are too big
+	$sprite.scale = x
+	$collision.scale = x
+	$flare.scale = x
+	$ignition.scale = x
+	
+	$collision.disabled = true
 
 # this function will most likely not be used anymore because each firecracker
 # has its own scene now
@@ -132,8 +136,8 @@ func ignite():
 func explode():
 	var space_state = get_world_2d().direct_space_state
 	
-	var radius = 100.0  # explosion radius
-	var strength = 800.0 # how powerful the explosion is
+	var radius = explosion_radius
+	var strength = explosion_strength
 	
 	var query = PhysicsShapeQueryParameters2D.new()
 	query.shape = CircleShape2D.new()
@@ -176,6 +180,11 @@ func _physics_process(_delta):
 			finished_flaring.emit()
 			explode()
 			queue_free()
+	
+	if (materialize_in == 0):
+		collision.disabled = false
+	else:
+		materialize_in -= 1
 
 ## Moved to _physicss_process
 #func _on_flare_area_entered(area):

@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	# card view window move
 	var speed = 8
 	if active:
-		position = position.lerp((screen_size)/Vector2(5, 3), delta*speed)
+		position = position.lerp((screen_size)/Vector2(1.4, 3), delta*speed)
 	else:
 		position = position.lerp(original_pos, delta*speed)
 

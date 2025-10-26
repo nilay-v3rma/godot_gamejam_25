@@ -35,9 +35,9 @@ func _process(delta: float) -> void:
 	# card view window move
 	var speed = 8
 	if active:
-		position = position.lerp((screen_size)/2, delta*speed)
+		global_position = global_position.lerp((screen_size)/2, delta*speed)
 	else:
-		position = position.lerp(original_pos, delta*speed)
+		global_position = global_position.lerp(original_pos, delta*speed)
 
 func card_used(card_id):
 	viewing_card_id = card_id

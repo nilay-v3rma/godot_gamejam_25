@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bxk5y4j8n6h0w"]
 
-[ext_resource type="Script" path="res://firecrackers/firecracker.gd" id="1_0"]
+[ext_resource type="Script" uid="uid://d3e5x7gwdsjoj" path="res://firecrackers/firecracker.gd" id="1_0"]
 [ext_resource type="Texture2D" uid="uid://b3p23tc0kp7hg" path="res://icon.svg" id="2_0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]

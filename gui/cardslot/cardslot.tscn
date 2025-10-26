@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bkbmywfp4lr7a" path="res://gui/cardslot/cardSlot1.png" id="1_7kl8x"]
 [ext_resource type="Texture2D" uid="uid://talikfjeoa1c" path="res://gui/cardslot/cardSlot2.png" id="2_24p7m"]
-[ext_resource type="Script" path="res://gui/cardslot/cardslot.gd" id="3_uquwx"]
+[ext_resource type="Script" uid="uid://bgtmymu0ofgtg" path="res://gui/cardslot/cardslot.gd" id="3_uquwx"]
 [ext_resource type="Texture2D" uid="uid://dvhlkepfxag3r" path="res://cards/icons/1.png" id="4_24p7m"]
 
 [node name="cardslot" type="TouchScreenButton"]
@@ -16,13 +16,20 @@ position = Vector2(76, 70)
 texture = ExtResource("4_24p7m")
 
 [node name="cooldown" type="RichTextLabel" parent="."]
-offset_left = 27.0
-offset_top = 17.0
-offset_right = 127.0
-offset_bottom = 117.0
+anchors_preset = -1
+anchor_left = -0.032
+anchor_top = -0.035
+anchor_right = 1.006
+anchor_bottom = 0.99300003
+offset_left = -0.07199955
+offset_top = 0.0050001144
+offset_right = 0.07598877
+offset_bottom = 0.0009918213
 theme_override_colors/default_color = Color(1, 0.974668, 0.986938, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 69
 text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_activated" from="." to="." method="_on_button_activated"]

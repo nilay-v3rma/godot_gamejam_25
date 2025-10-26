@@ -1,0 +1,585 @@
+[gd_scene load_steps=33 format=3 uid="uid://ba4ntask3h67j"]
+
+[ext_resource type="Texture2D" uid="uid://2edaso7xyt26" path="res://gui/inventory/inventorybutton.png" id="2_dr72f"]
+[ext_resource type="Script" uid="uid://c04bpd7p32ga8" path="res://gui/base_button.gd" id="3_3yeqi"]
+[ext_resource type="PackedScene" uid="uid://dg1487mpl6ya7" path="res://audio/sounds.tscn" id="3_vf3ls"]
+[ext_resource type="Texture2D" uid="uid://cub36ieoka36c" path="res://rooms/level.png" id="4_jfv3p"]
+[ext_resource type="Texture2D" uid="uid://dbshtf7xbm7fj" path="res://gui/inventory/inventory.png" id="4_w3lrt"]
+[ext_resource type="Script" uid="uid://do3mj3b4lmtsq" path="res://gui/inventory/inventory.gd" id="5_uuq2e"]
+[ext_resource type="Texture2D" uid="uid://deska0sre0fa1" path="res://furniture/bed/bed.png" id="6_i2qy6"]
+[ext_resource type="Script" uid="uid://cltduubdh4k2e" path="res://rooms/furnitureslot.gd" id="7_to2od"]
+[ext_resource type="Texture2D" uid="uid://deebpy26bhy0p" path="res://furniture/cupboard/cupboard.png" id="8_x67p0"]
+[ext_resource type="Texture2D" uid="uid://ll1aln5ae7x8" path="res://furniture/desk/desk.png" id="9_eimnw"]
+[ext_resource type="Texture2D" uid="uid://jokqovni5xx5" path="res://gui/inventory/cancel.png" id="10_6bnn5"]
+[ext_resource type="Texture2D" uid="uid://di104tlnp0n7l" path="res://characters/char.png" id="10_maqd4"]
+[ext_resource type="Texture2D" uid="uid://f5ytgrgnhqdc" path="res://gui/inventory/start.png" id="11_atq3v"]
+[ext_resource type="Texture2D" uid="uid://ccyuyesgbufhj" path="res://characters/char_throw.png" id="11_do1oa"]
+[ext_resource type="Script" uid="uid://cjv2d2rafsk4u" path="res://rooms/inventory_2.gd" id="12_3yeqi"]
+[ext_resource type="Script" uid="uid://dvkcvs6wnvlfm" path="res://rooms/start.gd" id="14_do1oa"]
+[ext_resource type="PackedScene" uid="uid://cw6rlsf0pg15r" path="res://gui/cardslot/cardslot.tscn" id="14_s28tc"]
+[ext_resource type="Script" uid="uid://b5lm2b5lwh5f0" path="res://cards/cardsystem.gd" id="14_w3lrt"]
+[ext_resource type="Texture2D" uid="uid://b77u0ve0n18kd" path="res://gui/skipturn/skip.png" id="15_t68xy"]
+[ext_resource type="Script" uid="uid://ckc57d5gyows8" path="res://gui/skipturn/skipturn.gd" id="16_maqd4"]
+[ext_resource type="Texture2D" uid="uid://dn5n1o7tjftlc" path="res://gui/cardview/cardview.png" id="17_do1oa"]
+[ext_resource type="Script" uid="uid://cp17orsv0qrkx" path="res://gui/cardview/cardview.gd" id="18_1jcwm"]
+[ext_resource type="Texture2D" uid="uid://c55seyuqfjs8y" path="res://gui/cardview/use.png" id="19_kosdd"]
+[ext_resource type="Script" uid="uid://cevw7iijqrqfo" path="res://gui/cardview/use.gd" id="20_nb0u7"]
+[ext_resource type="Texture2D" uid="uid://dxjvpi10vncpt" path="res://gui/cardview/dont.png" id="21_05krd"]
+[ext_resource type="Script" uid="uid://b0gvrvj6sa5jt" path="res://gui/cardview/dont.gd" id="22_kkjrg"]
+[ext_resource type="Script" uid="uid://bbjgvtae2qwto" path="res://rooms/versusshootsystem.gd" id="26_1jcwm"]
+[ext_resource type="Texture2D" uid="uid://bvq3pgu3wfd6h" path="res://shooting/shoot_btn.png" id="27_kosdd"]
+[ext_resource type="Script" uid="uid://d2pul62c10mpm" path="res://rooms/results.gd" id="29_nb0u7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yeqi"]
+size = Vector2(400, 320)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pyowd"]
+load_path = "res://.godot/imported/1.png-c8a8626d7213b46c94f996914ba96ea1.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05krd"]
+size = Vector2(688, 1722)
+
+[node name="Versus" type="Node2D"]
+
+[node name="Level" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("4_jfv3p")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/StaticBody2D"]
+position = Vector2(-374, 162)
+shape = SubResource("RectangleShape2D_3yeqi")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Level"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/StaticBody2D2"]
+position = Vector2(377, 166)
+shape = SubResource("RectangleShape2D_3yeqi")
+
+[node name="buildsystem" type="Node2D" parent="."]
+
+[node name="invetorybutton" type="TouchScreenButton" parent="buildsystem"]
+position = Vector2(21, 17)
+texture_normal = ExtResource("2_dr72f")
+texture_pressed = ExtResource("2_dr72f")
+script = ExtResource("3_3yeqi")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="inventory" type="Sprite2D" parent="buildsystem"]
+position = Vector2(240, -313)
+texture = ExtResource("4_w3lrt")
+script = ExtResource("5_uuq2e")
+
+[node name="furnitureslot0" type="TouchScreenButton" parent="buildsystem/inventory"]
+position = Vector2(-170, -161)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("6_i2qy6")
+texture_pressed = ExtResource("6_i2qy6")
+script = ExtResource("7_to2od")
+furniture_id = 1
+amount = 1
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+metadata/_edit_group_ = true
+
+[node name="label" type="RichTextLabel" parent="buildsystem/inventory/furnitureslot0"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.636
+offset_left = 2.28882e-05
+offset_top = -1.52588e-05
+offset_right = 1.45349
+offset_bottom = 30.3212
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+
+[node name="furnitureslot1" type="TouchScreenButton" parent="buildsystem/inventory"]
+position = Vector2(-13, -147)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("8_x67p0")
+texture_pressed = ExtResource("8_x67p0")
+script = ExtResource("7_to2od")
+furniture_id = 2
+amount = 2
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="label" type="RichTextLabel" parent="buildsystem/inventory/furnitureslot1"]
+anchors_preset = -1
+anchor_left = 0.029
+anchor_top = 1.0
+anchor_right = 1.044
+anchor_bottom = 1.364
+offset_left = 0.00697708
+offset_top = -1.52588e-05
+offset_right = -0.0395584
+offset_bottom = -0.0909424
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+
+[node name="furnitureslot2" type="TouchScreenButton" parent="buildsystem/inventory"]
+position = Vector2(-165, -50)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("9_eimnw")
+texture_pressed = ExtResource("9_eimnw")
+script = ExtResource("7_to2od")
+furniture_id = 3
+amount = 2
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="label" type="RichTextLabel" parent="buildsystem/inventory/furnitureslot2"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.221
+anchor_bottom = 2.069
+offset_left = 2.28882e-05
+offset_top = -1.52588e-05
+offset_right = -0.00696564
+offset_bottom = 0.0111694
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+
+[node name="furnitureslot3" type="TouchScreenButton" parent="buildsystem/inventory"]
+position = Vector2(118.99997, -159)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("10_maqd4")
+texture_pressed = ExtResource("11_do1oa")
+script = ExtResource("7_to2od")
+furniture_id = 4
+amount = 3
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="label" type="RichTextLabel" parent="buildsystem/inventory/furnitureslot3"]
+anchors_preset = -1
+anchor_left = -0.33400002
+anchor_top = 1.0860001
+anchor_right = 2.3830001
+anchor_bottom = 1.771
+offset_left = 0.025226593
+offset_top = 0.026977539
+offset_right = -0.014083862
+offset_bottom = -0.04660034
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+
+[node name="cancel" type="TouchScreenButton" parent="buildsystem/inventory"]
+position = Vector2(42, 144)
+scale = Vector2(0.88, 0.76)
+texture_normal = ExtResource("10_6bnn5")
+texture_pressed = ExtResource("10_6bnn5")
+script = ExtResource("3_3yeqi")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="start" type="TouchScreenButton" parent="buildsystem"]
+position = Vector2(462, 530)
+texture_normal = ExtResource("11_atq3v")
+texture_pressed = ExtResource("11_atq3v")
+script = ExtResource("14_do1oa")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="invetorybutton2" type="TouchScreenButton" parent="buildsystem"]
+position = Vector2(855.5, 15.5)
+texture_normal = ExtResource("2_dr72f")
+texture_pressed = ExtResource("2_dr72f")
+script = ExtResource("3_3yeqi")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="inventory2" type="Sprite2D" parent="buildsystem"]
+position = Vector2(879.5, -318.5)
+texture = ExtResource("4_w3lrt")
+script = ExtResource("12_3yeqi")
+
+[node name="furnitureslot0" type="TouchScreenButton" parent="buildsystem/inventory2"]
+position = Vector2(-170, -161)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("6_i2qy6")
+texture_pressed = ExtResource("6_i2qy6")
+script = ExtResource("7_to2od")
+furniture_id = 1
+amount = 2
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+metadata/_edit_group_ = true
+
+[node name="label" type="RichTextLabel" parent="buildsystem/inventory2/furnitureslot0"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.636
+offset_left = 2.28882e-05
+offset_top = -1.52588e-05
+offset_right = 1.45349
+offset_bottom = 30.3212
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+metadata/_edit_use_anchors_ = true
+
+[node name="furnitureslot1" type="TouchScreenButton" parent="buildsystem/inventory2"]
+position = Vector2(-13, -147)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("8_x67p0")
+texture_pressed = ExtResource("8_x67p0")
+script = ExtResource("7_to2od")
+furniture_id = 2
+amount = 1
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="label" type="RichTextLabel" parent="buildsystem/inventory2/furnitureslot1"]
+anchors_preset = -1
+anchor_left = 0.029
+anchor_top = 1.0
+anchor_right = 1.044
+anchor_bottom = 1.364
+offset_left = 0.00697708
+offset_top = -1.52588e-05
+offset_right = -0.0395584
+offset_bottom = -0.0909424
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+metadata/_edit_use_anchors_ = true
+
+[node name="furnitureslot2" type="TouchScreenButton" parent="buildsystem/inventory2"]
+position = Vector2(-165, -50)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("9_eimnw")
+texture_pressed = ExtResource("9_eimnw")
+script = ExtResource("7_to2od")
+furniture_id = 3
+amount = 1
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="label" type="RichTextLabel" parent="buildsystem/inventory2/furnitureslot2"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.221
+anchor_bottom = 2.069
+offset_left = 2.28882e-05
+offset_top = -1.52588e-05
+offset_right = -0.00696564
+offset_bottom = 0.0111694
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+metadata/_edit_use_anchors_ = true
+
+[node name="furnitureslot3" type="TouchScreenButton" parent="buildsystem/inventory2"]
+position = Vector2(119, -159)
+scale = Vector2(0.688, 0.66)
+texture_normal = ExtResource("10_maqd4")
+texture_pressed = ExtResource("11_do1oa")
+script = ExtResource("7_to2od")
+furniture_id = 4
+amount = 3
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="label" type="RichTextLabel" parent="buildsystem/inventory2/furnitureslot3"]
+anchors_preset = -1
+anchor_left = -0.33400002
+anchor_top = 1.0860001
+anchor_right = 2.3830001
+anchor_bottom = 1.771
+offset_left = 0.025226593
+offset_top = 0.026977539
+offset_right = -0.014083862
+offset_bottom = -0.04660034
+theme_override_font_sizes/normal_font_size = 20
+text = "Name
+Available: ?"
+
+[node name="cancel" type="TouchScreenButton" parent="buildsystem/inventory2"]
+position = Vector2(42, 144)
+scale = Vector2(0.88, 0.76)
+texture_normal = ExtResource("10_6bnn5")
+texture_pressed = ExtResource("10_6bnn5")
+script = ExtResource("3_3yeqi")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="cardsystem" type="Node2D" parent="."]
+position = Vector2(-17, -3)
+script = ExtResource("14_w3lrt")
+
+[node name="cardslot0" parent="cardsystem" instance=ExtResource("14_s28tc")]
+position = Vector2(47, 349)
+
+[node name="cardslot1" parent="cardsystem" instance=ExtResource("14_s28tc")]
+position = Vector2(223, 346)
+slot_index = 1
+card_id = 2
+
+[node name="cardslot2" parent="cardsystem" instance=ExtResource("14_s28tc")]
+position = Vector2(46, 500)
+slot_index = 2
+card_id = 3
+
+[node name="cardslot3" parent="cardsystem" instance=ExtResource("14_s28tc")]
+position = Vector2(224, 498)
+slot_index = 3
+card_id = 4
+
+[node name="skipturn" type="TouchScreenButton" parent="cardsystem"]
+position = Vector2(24, 287)
+texture_normal = ExtResource("15_t68xy")
+texture_pressed = ExtResource("15_t68xy")
+script = ExtResource("16_maqd4")
+
+[node name="cardview" type="Sprite2D" parent="cardsystem"]
+position = Vector2(-69, 917)
+texture = ExtResource("17_do1oa")
+script = ExtResource("18_1jcwm")
+metadata/_edit_group_ = true
+
+[node name="name" type="RichTextLabel" parent="cardsystem/cardview"]
+offset_left = -185.0
+offset_top = -235.0
+offset_right = 41.0
+offset_bottom = -190.0
+theme_override_font_sizes/normal_font_size = 26
+text = "Card name"
+
+[node name="type" type="RichTextLabel" parent="cardsystem/cardview"]
+offset_left = 93.0
+offset_top = -242.0
+offset_right = 198.0
+offset_bottom = -195.0
+theme_override_font_sizes/normal_font_size = 20
+text = "card type"
+
+[node name="icon" type="Sprite2D" parent="cardsystem/cardview"]
+position = Vector2(-93, -9)
+scale = Vector2(1.80313, 1.6875)
+texture = SubResource("CompressedTexture2D_pyowd")
+
+[node name="description" type="RichTextLabel" parent="cardsystem/cardview"]
+offset_left = 11.0
+offset_top = -127.0
+offset_right = 183.0
+offset_bottom = 69.0
+theme_override_font_sizes/normal_font_size = 20
+text = "card description here: this is what this item does and its details."
+
+[node name="cooldown" type="RichTextLabel" parent="cardsystem/cardview"]
+offset_left = -103.0
+offset_top = 134.0
+offset_right = 132.0
+offset_bottom = 169.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Cool Down: X turns"
+
+[node name="use" type="TouchScreenButton" parent="cardsystem/cardview"]
+position = Vector2(-194, 178)
+scale = Vector2(1.21875, 1.20312)
+texture_normal = ExtResource("19_kosdd")
+texture_pressed = ExtResource("19_kosdd")
+script = ExtResource("20_nb0u7")
+
+[node name="dont" type="TouchScreenButton" parent="cardsystem/cardview"]
+position = Vector2(13, 174)
+scale = Vector2(1.18239, 1.33333)
+texture_normal = ExtResource("21_05krd")
+texture_pressed = ExtResource("21_05krd")
+script = ExtResource("22_kkjrg")
+
+[node name="cardsystem2" type="Node2D" parent="."]
+position = Vector2(739, -3)
+script = ExtResource("14_w3lrt")
+
+[node name="cardslot0" parent="cardsystem2" instance=ExtResource("14_s28tc")]
+position = Vector2(47, 349)
+
+[node name="cardslot1" parent="cardsystem2" instance=ExtResource("14_s28tc")]
+position = Vector2(223, 346)
+slot_index = 1
+card_id = 2
+
+[node name="cardslot2" parent="cardsystem2" instance=ExtResource("14_s28tc")]
+position = Vector2(46, 500)
+slot_index = 2
+card_id = 3
+
+[node name="cardslot3" parent="cardsystem2" instance=ExtResource("14_s28tc")]
+position = Vector2(224, 498)
+slot_index = 3
+card_id = 4
+
+[node name="skipturn" type="TouchScreenButton" parent="cardsystem2"]
+position = Vector2(270, 281)
+texture_normal = ExtResource("15_t68xy")
+texture_pressed = ExtResource("15_t68xy")
+script = ExtResource("16_maqd4")
+
+[node name="cardview" type="Sprite2D" parent="cardsystem2"]
+position = Vector2(555, 933)
+texture = ExtResource("17_do1oa")
+script = ExtResource("18_1jcwm")
+metadata/_edit_group_ = true
+
+[node name="name" type="RichTextLabel" parent="cardsystem2/cardview"]
+offset_left = -185.0
+offset_top = -235.0
+offset_right = 41.0
+offset_bottom = -190.0
+theme_override_font_sizes/normal_font_size = 26
+text = "Card name"
+
+[node name="type" type="RichTextLabel" parent="cardsystem2/cardview"]
+offset_left = 93.0
+offset_top = -242.0
+offset_right = 198.0
+offset_bottom = -195.0
+theme_override_font_sizes/normal_font_size = 20
+text = "card type"
+
+[node name="icon" type="Sprite2D" parent="cardsystem2/cardview"]
+position = Vector2(-93, -9)
+scale = Vector2(1.80313, 1.6875)
+texture = SubResource("CompressedTexture2D_pyowd")
+
+[node name="description" type="RichTextLabel" parent="cardsystem2/cardview"]
+offset_left = 11.0
+offset_top = -127.0
+offset_right = 183.0
+offset_bottom = 69.0
+theme_override_font_sizes/normal_font_size = 20
+text = "card description here: this is what this item does and its details."
+
+[node name="cooldown" type="RichTextLabel" parent="cardsystem2/cardview"]
+offset_left = -103.0
+offset_top = 134.0
+offset_right = 132.0
+offset_bottom = 169.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Cool Down: X turns"
+
+[node name="use" type="TouchScreenButton" parent="cardsystem2/cardview"]
+position = Vector2(-194, 178)
+scale = Vector2(1.21875, 1.20312)
+texture_normal = ExtResource("19_kosdd")
+texture_pressed = ExtResource("19_kosdd")
+script = ExtResource("20_nb0u7")
+
+[node name="dont" type="TouchScreenButton" parent="cardsystem2/cardview"]
+position = Vector2(13, 174)
+scale = Vector2(1.18239, 1.33333)
+texture_normal = ExtResource("21_05krd")
+texture_pressed = ExtResource("21_05krd")
+script = ExtResource("22_kkjrg")
+
+[node name="versusshootsystem" type="Node2D" parent="."]
+script = ExtResource("26_1jcwm")
+
+[node name="HScrollBar" type="HScrollBar" parent="versusshootsystem"]
+offset_left = 51.0
+offset_top = 414.0
+offset_right = 351.0
+offset_bottom = 462.0
+min_value = -270.0
+max_value = 90.0
+step = 2.0
+value = -90.0
+
+[node name="HScrollBar2" type="HScrollBar" parent="versusshootsystem"]
+offset_left = 47.0
+offset_top = 487.0
+offset_right = 347.0
+offset_bottom = 535.0
+step = 2.0
+value = 52.0
+
+[node name="Line2D" type="Line2D" parent="versusshootsystem"]
+position = Vector2(436, 263)
+points = PackedVector2Array(0, 0, 100, 0)
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Shoot" type="TouchScreenButton" parent="versusshootsystem"]
+position = Vector2(147, 559)
+scale = Vector2(0.3375, 0.337349)
+texture_normal = ExtResource("27_kosdd")
+texture_pressed = ExtResource("27_kosdd")
+
+[node name="sounds" parent="." instance=ExtResource("3_vf3ls")]
+
+[node name="results" type="Node2D" parent="."]
+script = ExtResource("29_nb0u7")
+
+[node name="leftside" type="Area2D" parent="results"]
+position = Vector2(210, -51)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="results/leftside"]
+shape = SubResource("RectangleShape2D_05krd")
+
+[node name="rightside" type="Area2D" parent="results"]
+position = Vector2(960, -42)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="results/rightside"]
+shape = SubResource("RectangleShape2D_05krd")
+
+[node name="label" type="RichTextLabel" parent="results"]
+visible = false
+offset_right = 1154.5
+offset_bottom = 652.0
+theme_override_font_sizes/normal_font_size = 86
+text = "results_text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_activated" from="buildsystem/invetorybutton" to="buildsystem/inventory" method="_on_invetorybutton_button_activated"]
+[connection signal="furniture_picked" from="buildsystem/inventory/furnitureslot0" to="buildsystem/inventory" method="_on_furnitureslot_0_furniture_picked"]
+[connection signal="furniture_picked" from="buildsystem/inventory/furnitureslot1" to="buildsystem/inventory" method="_on_furnitureslot_0_furniture_picked"]
+[connection signal="furniture_picked" from="buildsystem/inventory/furnitureslot2" to="buildsystem/inventory" method="_on_furnitureslot_0_furniture_picked"]
+[connection signal="furniture_picked" from="buildsystem/inventory/furnitureslot3" to="buildsystem/inventory" method="_on_furnitureslot_0_furniture_picked"]
+[connection signal="button_activated" from="buildsystem/inventory/cancel" to="buildsystem/inventory" method="_on_cancel_button_activated"]
+[connection signal="button_activated" from="buildsystem/start" to="buildsystem/invetorybutton" method="_on_start_button_activated"]
+[connection signal="button_activated" from="buildsystem/start" to="buildsystem/inventory" method="_on_start_button_activated"]
+[connection signal="button_activated" from="buildsystem/start" to="buildsystem/start" method="_on_button_activated"]
+[connection signal="button_activated" from="buildsystem/start" to="cardsystem" method="_on_start_button_activated"]
+[connection signal="button_activated" from="buildsystem/start" to="results" method="_on_start_button_activated"]
+[connection signal="button_activated" from="buildsystem/invetorybutton2" to="buildsystem/inventory2" method="_on_invetorybutton_2_button_activated"]
+[connection signal="furniture_picked" from="buildsystem/inventory2/furnitureslot0" to="buildsystem/inventory2" method="_on_furnitureslot_0_furniture_picked"]
+[connection signal="furniture_picked" from="buildsystem/inventory2/furnitureslot1" to="buildsystem/inventory2" method="_on_furnitureslot_0_furniture_picked"]
+[connection signal="furniture_picked" from="buildsystem/inventory2/furnitureslot2" to="buildsystem/inventory2" method="_on_furnitureslot_0_furniture_picked"]
+[connection signal="button_activated" from="buildsystem/inventory2/cancel" to="buildsystem/inventory2" method="_on_cancel_button_activated"]
+[connection signal="card_used" from="cardsystem/cardslot0" to="cardsystem/cardview" method="_on_cardslot_0_card_used"]
+[connection signal="released" from="cardsystem/cardslot0" to="cardsystem/cardview" method="_on_cardslot_released"]
+[connection signal="card_used" from="cardsystem/cardslot1" to="cardsystem/cardview" method="_on_cardslot_1_card_used"]
+[connection signal="released" from="cardsystem/cardslot1" to="cardsystem/cardview" method="_on_cardslot_released"]
+[connection signal="card_used" from="cardsystem/cardslot2" to="cardsystem/cardview" method="_on_cardslot_2_card_used"]
+[connection signal="released" from="cardsystem/cardslot2" to="cardsystem/cardview" method="_on_cardslot_released"]
+[connection signal="card_used" from="cardsystem/cardslot3" to="cardsystem/cardview" method="_on_cardslot_3_card_used"]
+[connection signal="released" from="cardsystem/cardslot3" to="cardsystem/cardview" method="_on_cardslot_released"]
+[connection signal="button_activated" from="cardsystem/skipturn" to="cardsystem/skipturn" method="_on_button_activated"]
+[connection signal="skipturn" from="cardsystem/skipturn" to="cardsystem/cardview" method="_on_skipturn_skipturn"]
+[connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem/cardslot0" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem/cardslot1" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem/cardslot2" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem/cardview" to="cardsystem/cardslot3" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem/cardview" to="versusshootsystem" method="_on_cardview_card_deployed_left_side"]
+[connection signal="button_activated" from="cardsystem/cardview/use" to="cardsystem/cardview" method="_on_use_button_activated"]
+[connection signal="button_activated" from="cardsystem/cardview/dont" to="cardsystem/cardview" method="_on_dont_button_activated"]
+[connection signal="card_used" from="cardsystem2/cardslot0" to="cardsystem2/cardview" method="_on_cardslot_0_card_used"]
+[connection signal="released" from="cardsystem2/cardslot0" to="cardsystem2/cardview" method="_on_cardslot_released"]
+[connection signal="card_used" from="cardsystem2/cardslot1" to="cardsystem2/cardview" method="_on_cardslot_1_card_used"]
+[connection signal="released" from="cardsystem2/cardslot1" to="cardsystem2/cardview" method="_on_cardslot_released"]
+[connection signal="card_used" from="cardsystem2/cardslot2" to="cardsystem2/cardview" method="_on_cardslot_2_card_used"]
+[connection signal="released" from="cardsystem2/cardslot2" to="cardsystem2/cardview" method="_on_cardslot_released"]
+[connection signal="card_used" from="cardsystem2/cardslot3" to="cardsystem2/cardview" method="_on_cardslot_3_card_used"]
+[connection signal="released" from="cardsystem2/cardslot3" to="cardsystem2/cardview" method="_on_cardslot_released"]
+[connection signal="button_activated" from="cardsystem2/skipturn" to="cardsystem2/skipturn" method="_on_button_activated"]
+[connection signal="skipturn" from="cardsystem2/skipturn" to="cardsystem2/cardview" method="_on_skipturn_skipturn"]
+[connection signal="card_deployed" from="cardsystem2/cardview" to="cardsystem2" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem2/cardview" to="cardsystem2/cardslot0" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem2/cardview" to="cardsystem2/cardslot1" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem2/cardview" to="cardsystem2/cardslot2" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem2/cardview" to="cardsystem2/cardslot3" method="_on_cardview_card_deployed"]
+[connection signal="card_deployed" from="cardsystem2/cardview" to="versusshootsystem" method="_on_cardview_card_deployed_right_side"]
+[connection signal="button_activated" from="cardsystem2/cardview/use" to="cardsystem2/cardview" method="_on_use_button_activated"]
+[connection signal="button_activated" from="cardsystem2/cardview/dont" to="cardsystem2/cardview" method="_on_dont_button_activated"]
+[connection signal="pressed" from="versusshootsystem/Shoot" to="versusshootsystem" method="_on_shoot_pressed"]

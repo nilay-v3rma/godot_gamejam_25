@@ -36,6 +36,8 @@ func _physics_process(delta: float) -> void:
 
 # did not use the "_released" signal because it doesn't have the event parameter to check bounds
 func _unhandled_input(event):
+	if not is_visible_in_tree():
+		return
 	if event is InputEventScreenTouch and not event.pressed:
 		var local_pos = to_local(event.position)
 		if rect.has_point(local_pos) and pressable:
@@ -43,4 +45,12 @@ func _unhandled_input(event):
 
 
 func _on_characters_shooting_completed() -> void:
+	pass # Replace with function body.
+
+
+func _on_start_button_activated(data: Variant) -> void:
+	pass # Replace with function body.
+
+
+func _on_rotation_changed(value: float) -> void:
 	pass # Replace with function body.

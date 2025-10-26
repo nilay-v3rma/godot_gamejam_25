@@ -4,7 +4,7 @@ class_name FurnitureDB
 var furnitures: Dictionary = {}
 
 func _ready() -> void:
-	for i in range(1, 4):
+	for i in range(1, 5):
 		_register_furniture("res://furniture/furniture data/furniture"+str(i)+".tres")
 
 func _register_furniture(path: String):

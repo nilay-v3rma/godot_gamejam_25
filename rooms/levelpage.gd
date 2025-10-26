@@ -11,7 +11,7 @@ const RIGHTSTAGE3_SCENE = preload("res://rooms/rightstage3.tscn")
 @onready var level3_button = $level3
 
 # Position constants
-const GAMEPLAY_POSITION = Vector2(990, 491)  # Where the active stage should be
+const GAMEPLAY_POSITION = Vector2(960, 491)  # Where the active stage should be
 
 # Current active stage instance
 var current_stage_instance = null

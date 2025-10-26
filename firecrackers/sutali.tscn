@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpo6tlxr1i10h"]
 
-[ext_resource type="Script" path="res://firecrackers/firecracker.gd" id="1_c7xot"]
+[ext_resource type="Script" uid="uid://d3e5x7gwdsjoj" path="res://firecrackers/firecracker.gd" id="1_c7xot"]
 [ext_resource type="Texture2D" uid="uid://j6qtuut65mif" path="res://cards/icons/3.png" id="2_c7xot"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w0l06"]
@@ -25,7 +25,7 @@ script = ExtResource("1_c7xot")
 explosion_strength = 200.0
 explosion_radius = 200.0
 ignite_time = 2.0
-flare_time = 0.6
+flare_time = 0.4
 metadata/_custom_type_script = "uid://d3e5x7gwdsjoj"
 
 [node name="sprite" type="Sprite2D" parent="."]

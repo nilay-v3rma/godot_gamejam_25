@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FurnitureData" load_steps=3 format=3 uid="uid://bpalp8mag5jbv"]
+
+[ext_resource type="Texture2D" uid="uid://di104tlnp0n7l" path="res://characters/char.png" id="1_5o6af"]
+[ext_resource type="Script" uid="uid://binw7elo15man" path="res://furniture/furniture_data.gd" id="2_ghggp"]
+
+[resource]
+script = ExtResource("2_ghggp")
+id = 4
+name = "student"
+icon = ExtResource("1_5o6af")
+description = "It's a human being. But feel free to treat it like expendable furniture."
+scene_path = "res://furniture/btech student/student.tscn"
+durability = 10
+metadata/_custom_type_script = "uid://binw7elo15man"

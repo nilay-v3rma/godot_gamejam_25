@@ -28,9 +28,11 @@ func _process(delta: float) -> void:
 	
 	if (cooldown == 0):
 		$cooldown.visible = false
+		pressable = true
 	else:
 		$cooldown.text = str(cooldown)
 		$cooldown.visible = true
+		pressable = false
 
 func _on_button_activated(data: Variant) -> void:
 	sound.play_ui_sound(OPEN)
