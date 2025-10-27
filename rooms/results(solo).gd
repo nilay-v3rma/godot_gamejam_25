@@ -3,13 +3,19 @@ extends Node2D
 var checking: bool = false
 var right_side_empty: bool = false
 var turns_taken: int = 0
+var transition_counter: int = 5*60
 
 func show_message_victory():
 	$label.visible = true
-	$label.text = "You won in " + str(turns_taken) + " turns!\n\n Returning to Title Screen... (nilay todo)"
+	$label.text = "You won in " + str(turns_taken) + " turns!\n\n Returning to Title Screen..."
 	checking = false
 
 func _physics_process(delta: float) -> void:
+	if $label.visible:
+		transition_counter -= 1
+		if transition_counter < 0:
+			get_tree().change_scene_to_file("res://rooms/level.tscn")
+	
 	if not checking:
 		return
 	

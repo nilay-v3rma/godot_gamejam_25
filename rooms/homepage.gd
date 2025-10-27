@@ -22,3 +22,7 @@ func _on_start1_pressed(_data):
 	
 	# Optional: After animation completes, you can hide the node completely
 	tween.tween_callback(func(): visible = false).set_delay(1.0)
+
+
+func _on_start_button_activated(data: Variant) -> void:
+	get_tree().change_scene_to_file("res://rooms/versus.tscn")

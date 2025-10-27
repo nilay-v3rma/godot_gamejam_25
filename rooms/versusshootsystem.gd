@@ -35,6 +35,8 @@ func move_out():
 func spawn_and_launch_firecracker(angle: float, power: float, base_position: Vector2):
 	"""Create and launch a firecracker with the given parameters"""
 	# Load the firecracker scene
+	if not current_card_data:
+		return
 	var firecracker_scene = load(current_card_data.scene)
 	var firecracker: Firecracker = firecracker_scene.instantiate()
 	

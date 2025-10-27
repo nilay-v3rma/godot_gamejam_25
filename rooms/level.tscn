@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cg7ut2wo8cenf"]
+[gd_scene load_steps=31 format=3 uid="uid://cg7ut2wo8cenf"]
 
 [ext_resource type="Texture2D" uid="uid://cub36ieoka36c" path="res://rooms/level.png" id="1_0dt1f"]
 [ext_resource type="PackedScene" uid="uid://cw6rlsf0pg15r" path="res://gui/cardslot/cardslot.tscn" id="3_tdyh2"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dg1487mpl6ya7" path="res://audio/sounds.tscn" id="15_3r5wm"]
 [ext_resource type="Script" uid="uid://c04bpd7p32ga8" path="res://gui/base_button.gd" id="15_mlrue"]
 [ext_resource type="Texture2D" uid="uid://cjfe3bha208kg" path="res://level1.png" id="21_tdyh2"]
+[ext_resource type="Texture2D" uid="uid://cr2onvyovbq6v" path="res://start1p.png" id="22_julpp"]
 [ext_resource type="Script" uid="uid://cnxh1olcic6bk" path="res://shooting/shooting_system.gd" id="22_shooting"]
 [ext_resource type="Texture2D" uid="uid://cnmmcyxttwyen" path="res://level2.png" id="22_t0xh4"]
 [ext_resource type="Texture2D" uid="uid://ce0wlhmgx16vv" path="res://level3.png" id="23_julpp"]
@@ -226,7 +227,13 @@ texture = ExtResource("24_julpp")
 script = ExtResource("27_homepage")
 
 [node name="start1" type="TouchScreenButton" parent="homepage"]
-position = Vector2(-114, 126)
+position = Vector2(-109, 227)
+texture_normal = ExtResource("22_julpp")
+script = ExtResource("15_mlrue")
+metadata/_custom_type_script = "uid://c04bpd7p32ga8"
+
+[node name="start" type="TouchScreenButton" parent="homepage"]
+position = Vector2(-110, 114)
 texture_normal = ExtResource("25_6tsgs")
 script = ExtResource("15_mlrue")
 metadata/_custom_type_script = "uid://c04bpd7p32ga8"
@@ -276,3 +283,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="shootingsystem/Shoot" to="shootingsystem" method="_on_shoot_button_pressed"]
 [connection signal="shooting_completed" from="characters" to="cardsystem/cardview" method="_on_characters_shooting_completed"]
 [connection signal="shooting_started" from="characters" to="cardsystem/cardview" method="_on_characters_shooting_started"]
+[connection signal="button_activated" from="homepage/start" to="homepage" method="_on_start_button_activated"]

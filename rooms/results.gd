@@ -3,6 +3,7 @@ extends Node2D
 var checking: bool = false
 var left_side_empty: bool = false
 var right_side_empty: bool = false
+var transition_counter: int = 5*60
 
 func show_message_victory(side_won: String):
 	$label.visible = true
@@ -10,6 +11,11 @@ func show_message_victory(side_won: String):
 	checking = false
 
 func _physics_process(delta: float) -> void:
+	if $label.visible:
+		transition_counter -= 1
+		if transition_counter < 0:
+			get_tree().change_scene_to_file("res://rooms/level.tscn")
+	
 	if not checking:
 		return
 	
