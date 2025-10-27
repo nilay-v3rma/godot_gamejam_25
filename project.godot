@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Godot GameJam 25"
+config/name="Hostel Diwali"
 run/main_scene="res://rooms/level.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://rnuo1jfwtus0"
 
 [autoload]
 
@@ -23,14 +23,13 @@ FurnitureDBInst="*res://furniture/furniture_db.gd"
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
 
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
-pointing/emulate_mouse_from_touch=false
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

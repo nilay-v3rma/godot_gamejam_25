@@ -58,10 +58,14 @@ func spawn_and_launch_firecracker(angle: float, power: float, base_position: Vec
 func _on_cardview_card_deployed_left_side(slot_index: int, card_id: int) -> void:
 	current_card_data = CardDBInst.get_card(card_id)
 	current_side = -1
+	if not current_card_data:
+		next_turn()
 
 func _on_cardview_card_deployed_right_side(slot_index: int, card_id: int) -> void:
 	current_card_data = CardDBInst.get_card(card_id)
 	current_side = 1
+	if not current_card_data:
+		next_turn()
 
 func _on_student_chosen(student: Student):
 	if student.side != current_side:
@@ -69,9 +73,7 @@ func _on_student_chosen(student: Student):
 	chosen_student = student
 	move_to(student.global_position)
 
-
-func _on_shoot_pressed() -> void:
-	spawn_and_launch_firecracker(aim_line.rotation_degrees, power_bar.value, global_position)
+func next_turn():
 	move_out()
 	var next_side = current_side * -1
 	if next_side == -1:
@@ -80,3 +82,7 @@ func _on_shoot_pressed() -> void:
 		get_tree().current_scene.find_child("cardsystem2").visible = true
 	
 	current_side = 0
+
+func _on_shoot_pressed() -> void:
+	spawn_and_launch_firecracker(aim_line.rotation_degrees, power_bar.value, global_position)
+	next_turn()
