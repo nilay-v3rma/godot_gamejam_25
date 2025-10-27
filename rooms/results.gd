@@ -7,7 +7,7 @@ var transition_counter: int = 5*60
 
 func show_message_victory(side_won: String):
 	$label.visible = true
-	$label.text = side_won + " wins! \n\n Returning to Title Screen... (nilay todo)"
+	$label.text = side_won + " wins! \n\n Returning to Title Screen..."
 	checking = false
 
 func _physics_process(delta: float) -> void:
